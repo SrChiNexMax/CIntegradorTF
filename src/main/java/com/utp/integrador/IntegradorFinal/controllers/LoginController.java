@@ -10,6 +10,7 @@ public class LoginController {
 	@GetMapping("/")
 	public String mainPage(Model model) {
 		model.addAttribute("mensaje", "Mensaje desde model"); 
+		
 		return "index";
 	}
 
