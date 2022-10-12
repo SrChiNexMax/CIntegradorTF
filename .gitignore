@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### MySQL Info ###
+src/main/resources/config/mysql/db.properties
+bfg.jar
+
+
+
+
