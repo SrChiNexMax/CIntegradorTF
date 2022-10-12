@@ -1,4 +1,4 @@
-package com.utp.integrador.IntegradorFinal.models.entity.dao;
+package com.utp.integrador.IntegradorFinal.models.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

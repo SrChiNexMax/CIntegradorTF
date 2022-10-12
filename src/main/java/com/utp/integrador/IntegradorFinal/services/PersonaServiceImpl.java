@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.utp.integrador.IntegradorFinal.models.dao.PersonaDao;
 import com.utp.integrador.IntegradorFinal.models.entity.Persona;
-import com.utp.integrador.IntegradorFinal.models.entity.dao.PersonaDao;
 
 @Service
 public class PersonaServiceImpl implements PersonaService {
