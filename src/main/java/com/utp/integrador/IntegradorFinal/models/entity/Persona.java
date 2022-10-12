@@ -1,4 +1,4 @@
-package com.utp.integrador.IntegradorFinal.models;
+package com.utp.integrador.IntegradorFinal.models.entity;
 
 import java.io.Serializable;
 
