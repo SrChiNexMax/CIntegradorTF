@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -27,8 +29,13 @@ public class Ventas implements Serializable {
 	@Column(length = 100)
 	private String tipoComprobante;
 	
-	private Long idCliente;
-	private Long idUsuario;
+	@ManyToOne
+	@JoinColumn(nullable = false, name = "idCliente", referencedColumnName = "idCliente")
+	private Cliente cliente;
+	
+	@ManyToOne
+	@JoinColumn(nullable = false, name = "idUsuario", referencedColumnName = "idUsuario")
+	private Usuario usuario;
 	
 	private Timestamp fechaVenta;
 	
