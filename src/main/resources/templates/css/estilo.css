@@ -4,7 +4,7 @@
 
 .fondoB{
     background-image: url(../img/SLFondo.png);
-    background-size: cover;
+    background-size: 100%;
 }
 
 
@@ -33,16 +33,8 @@
   .log2 h2{
     margin: 0 0 30px;
     padding: 0;
-    color: #ded9bf;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    color: #ffb641;
     text-align: center;
-  }
-  
-  .log2 .usuario{
-    position: relative;
   }
   
   .log2 .usuario input{
@@ -56,25 +48,7 @@
     outline: none;
     background: transparent;
   }
-  
-  .log2 .usuario label{
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #fff;
-    pointer-events: none;
-    transition: .5s;
-  }
-  
-  .log2 .usuario input:focus ~ label,
-  .log2 .usuario input:focus ~ label{
-    top: -20px;
-    left: 0;
-    color: aqua;
-    font-size: 12px;
-  }
+
   .log2 form input[type="submit"] {
     position: relative;
     display: inline-block;
