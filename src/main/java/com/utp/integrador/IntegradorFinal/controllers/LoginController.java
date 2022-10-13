@@ -19,9 +19,7 @@ public class LoginController {
 	@GetMapping("/")
 	public String mainPage(Model model) {
 		var personas = personaService.listarPersonas();
-		model.addAttribute("personas", personas); 
-		
-		
+		model.addAttribute("personas", personas);
 		return "index";
 	}
 	
