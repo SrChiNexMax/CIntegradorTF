@@ -1,0 +1,87 @@
+* {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.fondoB {
+    background-image: url(../img/SLFondo.png);
+    background-size: 100%;
+}
+
+/* INICIO DE LOGIN */
+
+.MarcoLog {
+    position: absolute;
+    width: 99%;
+    height: 99%;
+}
+
+.log1 {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+}
+
+.log2 {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.log1 .log2 {
+    margin: 10% 0px 6%;
+    width: 600px;
+    padding: 60px;
+    background: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgb(0, 0, 0, 0.6);
+    border-radius: 10px;
+}
+
+.log2 h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #ffb641;
+    text-align: center;
+}
+
+.log2 .usuario input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.log2 form input[type="submit"] {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: black;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 0.5s;
+    margin-top: 40px;
+    letter-spacing: 4px;
+}
+
+.log2 input[type="submit"]:hover {
+    background: white;
+    color: black;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ffb641,
+                0 0 25px #ffb641,
+                0 0 50px #ffb641,
+                0 0 100px #ffb641;
+}
+
+/* TERMINO DE LOGIN */
