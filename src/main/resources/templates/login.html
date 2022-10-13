@@ -9,28 +9,27 @@
 </head>
 
 <body class="fondoB">
-	<div class="MarcoLog">
-		<div class="log1">
-			<div class="log2">
-				<h2>Inicio de Sesion</h2>
-				<form method="POST" th:action="@{/login}">
-	
-					<div class="usuario">
-						<input type="text" name="username" id="username" placeholder="Usuario" required>
-					</div>
-	
-					<div class="usuario">
-						<input type="password" name="password" id="password" placeholder="Contrase&ntilde;a" required>
-					</div>
-	
-					<center>
-						<input type="submit" value="Login"/>
-					</center>
-					
-				</form>
+	<div class="log1">
+		<div class="log2">
+			<h2>Inicio de Sesi&oacute;n</h2>
+			<form method="POST" th:action="@{/login}">
+				<div class="usuario">
+					<input type="text" name="username" id="username" placeholder="Usuario" required>
+				</div>
+				<div class="usuario">
+					<input type="password" name="password" id="password" placeholder="Contrase&ntilde;a" required>
+				</div>
+				<center>
+					<input type="submit" value="Login"/>
+				</center>
+			</form>
+			<div class="msg" th:if="${param.error}">
+				Usuario o contrase&ntilde;a incorrectos.
+			</div>
+			<div class="msg" th:if="${param.logout}">
+				Has cerrado sesi&oacute;n.
 			</div>
 		</div>
 	</div>
 </body>
-
 </html>

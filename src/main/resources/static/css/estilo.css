@@ -1,6 +1,7 @@
 * {
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
         "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
 }
 
 .fondoB {
@@ -10,35 +11,22 @@
 
 /* INICIO DE LOGIN */
 
-.MarcoLog {
-    position: absolute;
-    width: 99%;
-    height: 99%;
-}
-
 .log1 {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     justify-content: center;
+    display: flex;
+    align-items: center;
+    padding-top: 16vh;
 }
 
-.log2 {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 
 .log1 .log2 {
-    margin: 10% 0px 6%;
     width: 600px;
     padding: 60px;
     background: rgba(0, 0, 0, 0.8);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgb(0, 0, 0, 0.6);
     border-radius: 10px;
+    max-height: 400px;
 }
 
 .log2 h2 {
@@ -82,6 +70,12 @@
                 0 0 25px #ffb641,
                 0 0 50px #ffb641,
                 0 0 100px #ffb641;
+}
+
+.log2 .msg {
+    text-align: center;
+    padding-top: 20px;
+    color: white;
 }
 
 /* TERMINO DE LOGIN */
