@@ -23,6 +23,13 @@ public class LoginController {
 		return "index";
 	}
 	
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
+	
+	
+	
 	@GetMapping("/agregar")
     public String agregar(Persona persona){
         return "modificar";
