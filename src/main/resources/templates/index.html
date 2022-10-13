@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>S&L Ventas</title>
+</head>
+<body>
+	<h1>Hello world!</h1>
+	
+	<div th:if="${personas != null and !personas.empty}">
+		<table border="1">
+			<tr>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Email</th>
+				<th>Tel&eacute;fono</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+			</tr>
+			<tr th:each="persona: ${personas}">
+				<td th:text="${persona.nombre}"></td>
+				<td th:text="${persona.apellido}"></td>
+				<td th:text="${persona.email}"></td>
+				<td th:text="${persona.telefono}"></td>
+                <td><a th:href="@{/editar/} + ${persona.idPersona}"/>Editar</td>
+            	<td><a th:href="@{/eliminar(idPersona=${persona.idPersona})}"/>Eliminar</td>
+			</tr>
+		</table>
+	</div>
+	
+	<div th:if="${personas == null or personas.empty}">
+		<p>No existen registros</p>
+	</div>
+	<br>
+	
+	<form method="POST" th:action="@{/logout}">
+        <a href="#" onclick="this.parentNode.submit();">Logout</a>
+    </form>
+	
+	
+</body>
+</html>
