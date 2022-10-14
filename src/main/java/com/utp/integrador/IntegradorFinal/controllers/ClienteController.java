@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ClienteController {
 	
 	@GetMapping("/clientes")
-	public String mainPage(Model model) {
+	public String clientesMainPage(Model model) {
 		
 		return "secciones/clientes";
 	}
