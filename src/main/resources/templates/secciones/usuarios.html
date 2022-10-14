@@ -83,7 +83,7 @@
 	                            <td	th:text="${usuario.nombre}"></td>
 	                            <td	th:text="${usuario.acceso}"></td>
 	                            <td hidden th:text="${usuario.clave}">
-	                            <td ><button onclick="getData('${usuario.idUsuario}')">Seleccionar</button></td>
+	                            <td ><button th:onclick="|getData('row${usuario.idUsuario}')|">Seleccionar</button></td>
 	                        </tr>
                         </tbody>
                     </table>
