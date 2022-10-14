@@ -136,7 +136,7 @@
     justify-content: center;
 }
 
-.icon a {
+.icon p {
     color: white;
     font-size: xx-large;
     font-weight: 900;
@@ -168,9 +168,19 @@
 .button:hover:before {
     bottom: calc(var(--height) + var(--gap-between-tooltip-to-button));
 }
-
-
 /* FIN DE INDEX */
+
+/* INICiO DE VENTAS */
+
+.dv1{
+
+}
+
+.dv2{
+    
+}
+
+/* FIN DE VENTAS */
 
 /* INICIO DE USUARIO */
 .contenedor_usuario{
