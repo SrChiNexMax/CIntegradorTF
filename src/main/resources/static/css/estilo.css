@@ -371,6 +371,7 @@
 .etiqueta{
 	position: relative;
     padding-top: 1.5vh;
+    color: rgb(255, 255, 255);
 }
 /* EndEtiqueta */
 
@@ -479,6 +480,7 @@
     text-align: right;
     padding-top: 10vh;
     background-color: aquamarine;
+    height: 60vh;
 }
 .botones_apartado{
     padding: 5px;
