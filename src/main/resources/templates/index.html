@@ -1,62 +1,92 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>S&L Ventas</title>
 	<link rel="stylesheet" href="css/estilo.css">
 </head>
-<body class="fondoB">
-	
-	<div class="contenedor">
-		<div class="cardbtn">
-			<a type="button" th:href="@{/ventas}">Ventas</a>
-		</div>
-		<div class="cardbtn">
-			<a type="button" th:href="@{/clientes}">Clientes</a>
-		</div>
-		<div class="cardbtn">
-			<a type="button" th:href="@{/almacen}">Almac&eacute;n</a>
-		</div>
-		<div class="cardbtn">	
-			<a type="button" th:href="@{/usuarios}">Usuarios</a>
-		</div>
-		<div class="cardbtn">
-			<a type="button" th:href="@{/caja}">Caja</a>
-		</div>
-	</div>
 
-	<div>
-		<h1>Hello world!</h1>
-		<a th:href="@{/agregar}">Crear persona</a>
-		<div th:if="${personas != null and !personas.empty}">
-			<table border="1">
-				<tr>
-					<th>Nombre</th>
-					<th>Apellido</th>
-					<th>Email</th>
-					<th>Tel&eacute;fono</th>
-					<th>Editar</th>
-					<th>Eliminar</th>
-				</tr>
-				<tr th:each="persona: ${personas}">
-					<td th:text="${persona.nombre}"></td>
-					<td th:text="${persona.apellido}"></td>
-					<td th:text="${persona.email}"></td>
-					<td th:text="${persona.telefono}"></td>
-					<td><a th:href="@{/editar/} + ${persona.idPersona}"/>Editar</td>
-					<td><a th:href="@{/eliminar(idPersona=${persona.idPersona})}"/>Eliminar</td>
-				</tr>
-			</table>
+<body class="fondoB">
+	<center>
+		<div class="contenedor">
+			<div class="button">
+				<div class="button-wrapper">
+					<div class="text"><img src="img/ventas.png" alt="" width="100px" height="100px"></div>
+					<span class="icon">
+						<a type="button" th:href="@{/ventas}">Ventas</a>
+					</span>
+				</div>
+			</div>
+			<div class="button">
+				<div class="button-wrapper">
+					<div class="text"><img src="img/cliente.png" alt="" width="100px" height="100px"></div>
+					<span class="icon">
+						<a type="button" th:href="@{/clientes}">Clientes</a>
+					</span>
+				</div>
+			</div>
+			<div class="button">
+				<div class="button-wrapper">
+					<div class="text"><img src="img/almacen.png" alt="" width="100px" height="100px"></div>
+					<span class="icon">
+						<a type="button" th:href="@{/almacen}">Almac&eacute;n</a>
+					</span>
+				</div>
+			</div>
+			<div class="button">
+				<div class="button-wrapper">
+					<div class="text"><img src="img/usuario.png" alt="" width="100px" height="100px"></div>
+					<span class="icon">
+						<a type="button" th:href="@{/usuarios}">Usuarios</a>
+					</span>
+				</div>
+			</div>
+			<div class="button">
+				<div class="button-wrapper">
+					<div class="text"><img src="img/liquidar.png" alt="" width="100px" height="100px"></div>
+					<span class="icon">
+						<a type="button" th:href="@{/caja}">Caja</a>
+					</span>
+				</div>
+			</div>
+
+			<div style="position: absolute; z-index: -1;">
+				<h1>Hello world!</h1>
+				<a th:href="@{/agregar}">Crear persona</a>
+				<div th:if="${personas != null and !personas.empty}">
+					<table border="1">
+						<tr>
+							<th>Nombre</th>
+							<th>Apellido</th>
+							<th>Email</th>
+							<th>Tel&eacute;fono</th>
+							<th>Editar</th>
+							<th>Eliminar</th>
+						</tr>
+						<tr th:each="persona: ${personas}">
+							<td th:text="${persona.nombre}"></td>
+							<td th:text="${persona.apellido}"></td>
+							<td th:text="${persona.email}"></td>
+							<td th:text="${persona.telefono}"></td>
+							<td><a th:href="@{/editar/} + ${persona.idPersona}" />Editar</td>
+							<td><a th:href="@{/eliminar(idPersona=${persona.idPersona})}" />Eliminar</td>
+						</tr>
+					</table>
+				</div>
+
+				<div th:if="${personas == null or personas.empty}">
+					<p>No existen registros</p>
+				</div>
+
+				<form method="POST" th:action="@{/logout}">
+					<a href="#" onclick="this.parentNode.submit();">Logout</a>
+				</form>
+			</div>
 		</div>
-		
-		<div th:if="${personas == null or personas.empty}">
-			<p>No existen registros</p>
-		</div>
-		
-		<form method="POST" th:action="@{/logout}">
-			<a href="#" onclick="this.parentNode.submit();">Cerrar sesi&oacute;n</a>
-		</form>
-	</div>
+	</center>
+
 </body>
+
 </html>
