@@ -10,19 +10,19 @@
 	
 	<div class="contenedor">
 		<div class="cardbtn">
-			<input type="button" value="Ventas">
+			<a type="button" th:href="@{/ventas}">Ventas</a>
 		</div>
 		<div class="cardbtn">
-			<input type="button" value="Clientes">
+			<a type="button" th:href="@{/clientes}">Clientes</a>
 		</div>
 		<div class="cardbtn">
-			<input type="button" value="Almac&eacute;n">
+			<a type="button" th:href="@{/almacen}">Almac&eacute;n</a>
+		</div>
+		<div class="cardbtn">	
+			<a type="button" th:href="@{/usuarios}">Usuarios</a>
 		</div>
 		<div class="cardbtn">
-			<input type="button" value="Usuarios">
-		</div>
-		<div class="cardbtn">
-			<input type="button" value="Caja">
+			<a type="button" th:href="@{/caja}">Caja</a>
 		</div>
 	</div>
 
@@ -55,7 +55,7 @@
 		</div>
 		
 		<form method="POST" th:action="@{/logout}">
-			<a href="#" onclick="this.parentNode.submit();">Logout</a>
+			<a href="#" onclick="this.parentNode.submit();">Cerrar sesi&oacute;n</a>
 		</form>
 	</div>
 </body>
