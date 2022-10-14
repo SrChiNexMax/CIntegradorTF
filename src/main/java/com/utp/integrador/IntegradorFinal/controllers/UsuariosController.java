@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class UsuariosController {
 	
-	@GetMapping
-	public String mainPage(Model model) {
+	@GetMapping("/usuarios")
+	public String usuariosMainPage(Model model) {
 		
 		return "secciones/usuarios";
 	}

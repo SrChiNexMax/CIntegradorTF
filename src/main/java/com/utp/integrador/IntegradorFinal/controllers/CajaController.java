@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class CajaController {
 	
-	@GetMapping
-	public String mainPage(Model model) {
+	@GetMapping("/caja")
+	public String cajaMainPage(Model model) {
 		
 		return "secciones/caja";
 	}
