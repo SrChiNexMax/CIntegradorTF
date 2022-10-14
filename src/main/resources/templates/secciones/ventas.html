@@ -9,27 +9,120 @@
 </head>
 
 <body class="fondoB">
-	<center>
-		<div class="dv">
-			<div class="dv1">
+    <div class="dv">
+        <div class="dv1">
 
-			</div>
-			<div class="dv2">
-				<a type="button" th:href="@{/}">
-					<button class="menubtn">
-						<span class="menuicon">
-							<svg viewBox="0 0 175 80" width="40" height="40">
-								<rect width="80" height="15" fill="#f0f0f0" rx="10"></rect>
-								<rect y="30" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
-								<rect y="60" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
-							</svg>
-						</span>
-						<span class="menutext">MENU</span>
-					</button>
-				</a>
-			</div>
-		</div>
-	</center>
+        </div>
+        <div class="dv2">
+            <div class="headermenu">
+                <a type="button" th:href="@{/}">
+                    <button class="menubtn">
+                        <span class="menuicon">
+                            <svg viewBox="0 0 175 80" width="40" height="40">
+                                <rect width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                                <rect y="30" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                                <rect y="60" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                            </svg>
+                        </span>
+                        <span class="menutext">MENU</span>
+                    </button>
+                </a>
+                <div class="menuuser">
+                    <p>Usuario</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contenedor_apartado">
+        <div class="area_trabajo">
+            <div class="formulario_datos_apartado">
+                <div class="datos_apartado">
+                    <div class="form__group field">
+                        <input required="" placeholder="Name" class="form__field" type="input">
+                        <label class="form__label" for="name">Codigo</label>
+                    </div>
+                </div>
+                <div class="datos_apartado">
+                    <div class="form__group field">
+                        <input required="" placeholder="Name" class="form__field" type="input">
+                        <label class="form__label" for="name">Precio</label>
+                    </div>
+                </div>
+                <div class="datos_apartado">
+                        <div class="bton_accion">
+                            <button>Busqueda</button>
+                        </div>
+                </div>
+                <div class="datos_apartado">
+                    <div class="form__group field">
+                        <input required="" placeholder="Name" class="form__field" type="input">
+                        <label class="form__label" for="name">Descripcion</label>
+                    </div>
+                </div>
+                <div class="datos_apartado">
+                    <div class="form__group field">
+                        <input required="" placeholder="Name" class="form__field" type="input">
+                        <label class="form__label" for="name">Stock</label>
+                    </div>
+                </div>
+            </div>
+            <div class="tabla_apartado">
+                <div class="table-wrapper">
+                    <table class="fl-table">
+                        <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>TC</th>
+                            <th>Descripción</th>
+                            <th>Usuario</th>
+                            <th>Fecha</th>
+                            <th>Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Content 1</td>
+                            <td>Content 1</td>
+                            <td>Content 1</td>
+                            <td>Content 1</td>
+                            <td>Content 1</td>
+                            <td>Content 1</td>
+                        </tr>
+                        <tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="formulario_datos_apartado">
+                <div class="datos_apartado">
+                    <div class="form__group field">
+                        <input required="" placeholder="Name" class="form__field" type="input">
+                        <label class="form__label" for="name">DNI/RUC</label>
+                    </div>
+                </div>
+                <div class="datos_apartado">
+                    <div class="form__group field">
+                        <input required="" placeholder="Name" class="form__field" type="input">
+                        <label class="form__label" for="name">Nombre</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="espacio_botones_apartado">
+            <div class="botones_apartado">
+                <a href=""><button class="accion_apartado">Nuevo</button></a>
+            </div>
+            <div class="botones_apartado">
+                <a href=""><button class="accion_apartado">Modificar</button></a>
+            </div>
+            <div class="botones_apartado">
+                <a href=""><button class="accion_apartado">Eliminar</button></a>
+            </div>
+            <div class="botones_apartado">
+                <a href=""><button class="accion_apartado">Facturar</button></a>
+            </div>
+        </div>
+    </div>
+    
 </body>
 
 </html>
