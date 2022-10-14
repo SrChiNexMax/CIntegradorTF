@@ -367,6 +367,13 @@
     display: flex;
     gap: 20px;
 }
+/* Etiqueta */
+.etiqueta{
+	position: relative;
+    padding-top: 1.5vh;
+}
+/* EndEtiqueta */
+
 /*field*/
 .form__group {
     position: relative;
