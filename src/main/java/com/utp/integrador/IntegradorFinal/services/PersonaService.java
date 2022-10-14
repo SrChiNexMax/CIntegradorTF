@@ -13,9 +13,5 @@ public interface PersonaService {
 	public void eliminar(Persona persona);
 	
 	public Persona encontrarPersona(Persona persona);
-	
-	
-	
-	
 
 }

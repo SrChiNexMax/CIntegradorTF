@@ -1,4 +1,4 @@
-package com.utp.integrador.IntegradorFinal.services;
+package com.utp.integrador.IntegradorFinal.services.implementation;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.utp.integrador.IntegradorFinal.models.dao.PersonaDao;
 import com.utp.integrador.IntegradorFinal.models.entity.Persona;
+import com.utp.integrador.IntegradorFinal.services.PersonaService;
 
 @Service
 public class PersonaServiceImpl implements PersonaService {

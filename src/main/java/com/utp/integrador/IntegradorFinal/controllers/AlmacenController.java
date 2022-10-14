@@ -12,5 +12,4 @@ public class AlmacenController {
 		
 		return "secciones/almacen";
 	}
-
 }
