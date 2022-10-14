@@ -9,6 +9,80 @@
     background-size: 100%;
 }
 
+/* Menu */
+.menubtn {
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.5s ease-in-out;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    background: black;
+    color: white;
+  }
+  
+  .menubtn:hover {
+    box-shadow: 0 0 20px 0px black;
+  }
+  
+  .menubtn .menuicon {
+    position: absolute;
+    height: 40px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+  }
+  
+  .menubtn .menutext {
+    transform: translateX(55px);
+  }
+  
+  .menubtn:hover .menuicon {
+    width: 175px;
+  }
+  
+  .menubtn:hover .menutext {
+    transition: all 0.5s;
+    opacity: 0;
+  }
+  
+  .menubtn:focus {
+    outline: none;
+  }
+  
+  .menubtn:active .menuicon {
+    transform: scale(0.85);
+  }
+
+  .headermenu{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+    
+  }
+
+  .menuuser {
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    color: white;
+  }
+
+  /* Fin de menu */
+
 /* INICIO DE LOGIN */
 
 .log1 {
@@ -187,55 +261,6 @@
     height: 100%;
 }
 
-.menubtn {
-    width: 150px;
-    height: 50px;
-    border-radius: 5px;
-    border: none;
-    transition: all 0.5s ease-in-out;
-    font-size: 20px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    background: black;
-    color: white;
-  }
-  
-  .menubtn:hover {
-    box-shadow: 0 0 20px 0px black;
-  }
-  
-  .menubtn .menuicon {
-    position: absolute;
-    height: 40px;
-    width: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.5s;
-  }
-  
-  .menubtn .menutext {
-    transform: translateX(55px);
-  }
-  
-  .menubtn:hover .menuicon {
-    width: 175px;
-  }
-  
-  .menubtn:hover .menutext {
-    transition: all 0.5s;
-    opacity: 0;
-  }
-  
-  .menubtn:focus {
-    outline: none;
-  }
-  
-  .menubtn:active .menuicon {
-    transform: scale(0.85);
-  }
-/* FIN DE VENTAS */
 /* FIN DE VENTAS */
 
 /* INICIO DE USUARIO */
