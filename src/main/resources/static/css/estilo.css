@@ -82,15 +82,14 @@
 
 /* INICIO DE INDEX */
 
-.contenedor {
+.indexcontenedor {
     height: 95vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    ;
 }
 
-.button {
+.indexbutton {
     --width: 200px;
     --height: 150px;
     --button-color: #1163ff;
@@ -105,13 +104,13 @@
     margin-right: 50px;
 }
 
-.text {
+.indextext {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.button-wrapper,.text,.icon {
+.indexbutton-wrapper,.indextext,.indexicon {
     overflow: hidden;
     position: absolute;
     width: 100%;
@@ -120,15 +119,15 @@
     color: #fff;
 }
 
-.text {
+.indextext {
     top: 0
 }
 
-.text,.icon {
+.indextext,.indexicon {
     transition: top 0.3s;
 }
 
-.icon {
+.indexicon {
     color: #fff;
     top: 100%;
     display: flex;
@@ -136,48 +135,104 @@
     justify-content: center;
 }
 
-.icon p {
+.indexicon p {
     color: white;
     font-size: xx-large;
     font-weight: 900;
     text-decoration: none;
 }
 
-.button:hover {
+.indexbutton:hover {
     background: #6c18ff;
 }
 
-.button:hover .text {
+.indexbutton:hover .indextext {
     top: -100%;
 }
 
-.button:hover .icon {
+.indexbutton:hover .indexicon {
     top: 0;
 }
 
-.button:hover:before,
-.button:hover:after {
+.indexbutton:hover:before,
+.indexbutton:hover:after {
     opacity: 1;
     visibility: visible;
 }
 
-.button:hover:after {
+.indexbutton:hover:after {
     bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) - 20px);
 }
 
-.button:hover:before {
+.indexbutton:hover:before {
     bottom: calc(var(--height) + var(--gap-between-tooltip-to-button));
 }
 /* FIN DE INDEX */
 
 /* INICiO DE VENTAS */
 
-.dv1{
+.dv{
+    display: flex;
+    width: 95vw;
+    height: 95vh;
+}
 
+.dv1{
+    width: 80%;
+    height: 100%;
 }
 
 .dv2{
-    
+    width: 20%;
+    height: 100%;
 }
 
+.menubtn {
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.5s ease-in-out;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    background: black;
+    color: white;
+  }
+  
+  .menubtn:hover {
+    box-shadow: 0 0 20px 0px black;
+  }
+  
+  .menubtn .menuicon {
+    position: absolute;
+    height: 40px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+  }
+  
+  .menubtn .menutext {
+    transform: translateX(55px);
+  }
+  
+  .menubtn:hover .menuicon {
+    width: 175px;
+  }
+  
+  .menubtn:hover .menutext {
+    transition: all 0.5s;
+    opacity: 0;
+  }
+  
+  .menubtn:focus {
+    outline: none;
+  }
+  
+  .menubtn:active .menuicon {
+    transform: scale(0.85);
+  }
 /* FIN DE VENTAS */
