@@ -83,7 +83,6 @@
 /* INICIO DE INDEX */
 
 .contenedor{
-    width: 70%;
     height: 100px;
     display: flex;
     justify-content: center;
@@ -92,6 +91,7 @@
 .cardbtn{
     width: 100px;
     height: 100px;
+    text-align: center;
 }
 
 /* FIN DE INDEX */  
