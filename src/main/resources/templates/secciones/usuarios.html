@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security" 
+	  lang="en">
 
 <head>
 	<meta charset="UTF-8">
@@ -32,7 +34,7 @@
                     </button>
                 </a>
                 <div class="menuuser">
-                    <p>Usuario</p>
+                    <p sec:authentication="name">Usuario</p>
                 </div>
             </div>
         </div>
@@ -81,7 +83,7 @@
 	                            <td	th:text="${usuario.nombre}"></td>
 	                            <td	th:text="${usuario.acceso}"></td>
 	                            <td hidden th:text="${usuario.clave}">
-	                            <td ><button onclick="getData('row103')">Seleccionar</button></td>
+	                            <td ><button onclick="getData('${usuario.idUsuario}')">Seleccionar</button></td>
 	                        </tr>
                         </tbody>
                     </table>
