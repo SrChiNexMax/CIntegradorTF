@@ -171,3 +171,40 @@
 
 
 /* FIN DE INDEX */
+
+/* INICIO DE USUARIO */
+.contenedor_usuario{
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 0;
+
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+}
+.area_trabajo{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 20px;
+}
+.formulario_datos_usuario{
+    display: flex;
+    gap: 40px;
+}
+.datos_usuario{
+    display: flex;
+    gap: 20px;
+}
+.tabla_usuario{
+    padding: 10%;
+}
+.espacio_botones_usuario{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+.botones_usuario{
+    padding: 10px;
+}
+/* FIN DE USUARIO */
