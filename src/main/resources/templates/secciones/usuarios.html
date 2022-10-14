@@ -6,9 +6,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Usuarios</title>
 	<link rel="stylesheet" href="css/estilo.css">
+	<script type='text/javascript' src="js/usuarios.js"></script>
 </head>
 
 <body class="fondoB">
+	<form hidden id="add" method="post" th:object="${usuario}" th:action="@{/guardarUsuario}" >
+    	<input hidden >
+    </form>
     <div class="dv">
         <div class="dv1">
 
@@ -38,14 +42,14 @@
             <div class="formulario_datos_apartado">
                 <div class="datos_apartado">
                     <div class="form__group field">
-                        <input required="" placeholder="Name" class="form__field" type="input">
+                        <input type="text" form="add" required placeholder="Nombre" class="form__field" id="nombre" name="nombre">
                         <label class="form__label" for="name">Nombre</label>
                     </div>
                 </div>
                 <div class="datos_apartado">
                     <div class="form__group field">
-                        <input required="" placeholder="Name" class="form__field" type="input">
-                        <label class="form__label" for="name">Clave</label>
+                        <input type="password" form="add" required placeholder="Clave" class="form__field" id="clave" name="clave">
+                        <label class="form__label" for="pass">Clave</label>
                     </div>
                 </div>
                 <div class="datos_apartado">
@@ -53,7 +57,7 @@
                         <p>Rol:</p>
                     </div>
                     <div class="content-select">
-                        <select>
+                        <select form="add" id="acceso" name="acceso">
                             <option>Administrador</option>
                             <option>Usuario</option>
                         </select>
@@ -68,22 +72,25 @@
                             <th>Codigo</th>
                             <th>Nombre</th>
                             <th>Rol</th>
+                            <th style="width:100px"></th> 
                         </tr>
                         </thead>
                         <tbody>
-                        <tr th:each="usuario: ${usuarios}">
-                            <td th:text="${usuario.idUsuario}"></td>
-                            <td	th:text="${usuario.nombre}"></td>
-                            <td	th:text="${usuario.acceso}"></td>
-                        </tr>
-                        <tbody>
+	                        <tr th:each="usuario: ${usuarios}" th:id="'row' + ${usuario.idUsuario}">
+	                            <td th:text="${usuario.idUsuario}"></td>
+	                            <td	th:text="${usuario.nombre}"></td>
+	                            <td	th:text="${usuario.acceso}"></td>
+	                            <td hidden th:text="${usuario.clave}">
+	                            <td ><button onclick="getData('row103')">Seleccionar</button></td>
+	                        </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
         </div>
         <div class="espacio_botones_apartado">
             <div class="botones_apartado">
-                <a href=""><button class="accion_apartado">Agregar</button></a>
+                <button type="submit" class="accion_apartado" form="add">Agregar</button>
             </div>
             <div class="botones_apartado">
                 <a href=""><button class="accion_apartado">Modificar</button></a>
