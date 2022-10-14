@@ -13,8 +13,9 @@
 
 <body class="fondoB">
 	<form hidden id="add" method="post" th:object="${usuario}" th:action="@{/guardarUsuario}" >
-    	<input hidden >
+    	<input type="hidden" name="idUsuario" id="idUsuario">
     </form>
+    
     <div class="dv">
         <div class="dv1">
 
@@ -95,7 +96,7 @@
                 <button type="submit" class="accion_apartado" form="add">Agregar</button>
             </div>
             <div class="botones_apartado">
-                <a href=""><button class="accion_apartado">Modificar</button></a>
+                <button type="submit" form="add" class="accion_apartado">Modificar</button>
             </div>
             <div class="botones_apartado">
                 <a href=""><button class="accion_apartado">Detalles</button></a>
