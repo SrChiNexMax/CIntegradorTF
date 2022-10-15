@@ -14,6 +14,4 @@ public interface UsuarioService {
 	
 	public Usuario encontrarUsuario(Usuario usuario);
 	
-	
-
 }
