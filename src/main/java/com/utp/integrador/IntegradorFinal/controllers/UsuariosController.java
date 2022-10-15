@@ -31,4 +31,10 @@ public class UsuariosController {
 		return "redirect:/usuarios";
 	}
 	
+	@GetMapping("/eliminarUsuario")
+    public String eliminarUsuario(Usuario usuario){
+		usuarioService.eliminar(usuario);
+        return "redirect:/usuarios";
+    }
+	
 }
