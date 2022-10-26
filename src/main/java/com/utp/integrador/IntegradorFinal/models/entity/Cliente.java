@@ -31,6 +31,6 @@ public class Cliente implements Serializable {
 	private String telefono;
 	
 	@Column(length = 100)
-	private String direccion; 
+	private String direccion;
 
 }
