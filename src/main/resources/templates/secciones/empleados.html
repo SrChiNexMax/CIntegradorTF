@@ -6,7 +6,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Usuarios</title>
+	<title>Empleados</title>
 	<link rel="stylesheet" href="css/estilo.css">
 	<script type='text/javascript' src="js/usuarios.js"></script>
 </head>
@@ -71,19 +71,32 @@
                     <table class="fl-table">
                         <thead>
                         <tr>
-                            <th>Codigo</th>
+                            <th>CodEmpleado</th>
+                            <th>CodUsuario</th>
                             <th>Nombre</th>
-                            <th>Rol</th>
+                            <th>Dni</th>
+                            <th>Telefono</th>
+                            <th>FechaNacimiento</th>
+                            <th>FechaContratacion</th>
+                            <th>Direccion</th>
+                            <th>Correo</th>
+                            <th>Estado</th>
                             <th style="width:100px"></th> 
                         </tr>
                         </thead>
                         <tbody>
-	                        <tr th:each="usuario: ${usuarios}" th:id="'row' + ${usuario.idUsuario}">
-	                            <td th:text="${usuario.idUsuario}"></td>
-	                            <td	th:text="${usuario.nombre}"></td>
-	                            <td	th:text="${usuario.acceso}"></td>
-	                            <td hidden th:text="${usuario.clave}">
-	                            <td ><button th:onclick="|getData('row${usuario.idUsuario}')|">Seleccionar</button></td>
+	                        <tr th:each="empleado: ${empleados}" th:id="'row' + ${empleado.idEmpleado}">
+	                            <td th:text="${empleado.idEmpleado}"></td>
+                                <td th:text="${empleado.idUsuario}"></td>
+	                            <td	th:text="${empleado.nombre}"></td>
+	                            <td	th:text="${empleado.dni}"></td>
+                                <td	th:text="${empleado.telefono}"></td>
+                                <td	th:text="${empleado.fechaNacimiento}"></td>
+                                <td	th:text="${empleado.fechaContratacion}"></td>
+                                <td	th:text="${empleado.direccion}"></td>
+                                <td	th:text="${empleado.correoElectronico}"></td>
+                                <td	th:text="${empleado.estado}"></td>
+	                            <td ><button th:onclick="">Seleccionar</button></td>
 	                        </tr>
                         </tbody>
                     </table>
@@ -92,16 +105,10 @@
         </div>
         <div class="espacio_botones_apartado">
             <div class="botones_apartado">
-                <button type="submit" class="menubtn2 mbtn" form="add">Agregar</button>
+                <a style="text-decoration: none;" th:href="@{/usuarios}"><button class="menubtn2 mbtn">Regresar</button></a>
             </div>
             <div class="botones_apartado">
-                <button type="submit" form="add" class="menubtn2 mbtn">Modificar</button>
-            </div>
-            <div class="botones_apartado">
-                <a style="text-decoration: none;" th:href="@{/empleados}"><button class="menubtn2 mbtn">Detalles</button></a>
-            </div>
-            <div class="botones_apartado">
-                <button form="delete" class="menubtn2 mbtn">Eliminar/Suspender</button>
+                <button type="" form="add" class="menubtn2 mbtn">Modificar</button>
             </div>
         </div>
     </div>
