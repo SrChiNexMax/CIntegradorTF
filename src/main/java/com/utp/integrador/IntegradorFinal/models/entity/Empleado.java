@@ -2,6 +2,7 @@ package com.utp.integrador.IntegradorFinal.models.entity;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -41,7 +42,7 @@ public class Empleado implements Serializable {
 	
 	@Column(nullable = true)
 	private int telefono;
-	
+		
 	private Timestamp fechaNacimiento;
 	
 	private Timestamp fechaContratacion;
@@ -54,5 +55,18 @@ public class Empleado implements Serializable {
 	
 	@Column(length = 150)
 	private String estado;
+	
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = validateDate(fechaNacimiento);
+	}
+	
+	public void setFechaContratacion(Date fechaContratacion) {
+		this.fechaContratacion = validateDate(fechaContratacion);
+	}
+	
+	private Timestamp validateDate(Date date) {
+		Timestamp ts = new Timestamp(date.getTime());
+		return ts;		
+	}
 	
 }
