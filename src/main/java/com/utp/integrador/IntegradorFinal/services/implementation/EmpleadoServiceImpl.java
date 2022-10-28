@@ -25,7 +25,6 @@ public class EmpleadoServiceImpl implements EmpleadoService {
     @Override
     @Transactional
     public void guardar(Empleado empleado) {
-    	   	
         empleadoDao.save(empleado);
         
     }

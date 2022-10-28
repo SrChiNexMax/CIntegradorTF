@@ -31,11 +31,6 @@ public class Empleado implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idEmpleado;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "idUsuario")
-	@MapsId
-	private Usuario usuario;
-	
 	@Column(length = 150)
 	private String nombre;
 	
@@ -44,6 +39,12 @@ public class Empleado implements Serializable {
 	
 	@Column(nullable = true)
 	private int telefono;
+	
+	@Column(length = 100)
+	private String clave;
+	
+	@Column(length = 100)
+	private String acceso;
 	
 	@DateTimeFormat(pattern = "YYYY-MM-dd")
 	private Date fechaNacimiento;
@@ -59,6 +60,5 @@ public class Empleado implements Serializable {
 	
 	@Column(length = 150)
 	private String estado;
-	
 	
 }

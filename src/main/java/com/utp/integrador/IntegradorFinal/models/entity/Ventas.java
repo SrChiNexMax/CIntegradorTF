@@ -34,8 +34,8 @@ public class Ventas implements Serializable {
 	private Cliente cliente;
 	
 	@ManyToOne
-	@JoinColumn(nullable = false, name = "idUsuario", referencedColumnName = "idUsuario")
-	private Usuario usuario;
+	@JoinColumn(nullable = false, name = "idEmpleado", referencedColumnName = "idEmpleado")
+	private Empleado empleado;
 	
 	private Timestamp fechaVenta;
 	
