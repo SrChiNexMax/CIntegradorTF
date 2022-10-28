@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.utp.integrador.IntegradorFinal.services.CategoriaService;
 import com.utp.integrador.IntegradorFinal.services.MarcaService;
+import com.utp.integrador.IntegradorFinal.services.ProductoService;
 
 @Controller
 public class AlmacenController {
@@ -16,6 +17,9 @@ public class AlmacenController {
     
     @Autowired
     public CategoriaService categoriaService;
+    
+    @Autowired
+    public ProductoService productoService;
 	
 	@GetMapping("/almacen")
 	public String almacenMainPage(Model model) {
@@ -24,6 +28,9 @@ public class AlmacenController {
         
         var categorias = categoriaService.listarCategorias();
         model.addAttribute("categorias", categorias);
+        
+        var productos = productoService.listarProductos();
+        model.addAttribute("productos", productos);
         
 		return "secciones/almacen";
 	}

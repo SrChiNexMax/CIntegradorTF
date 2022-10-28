@@ -23,6 +23,7 @@ public class CategoriaServiceImpl implements CategoriaService{
     }
 
     @Override
+    @Transactional
     public void guardar(Categoria categoria) {
         categoriaDao.save(categoria);
         
