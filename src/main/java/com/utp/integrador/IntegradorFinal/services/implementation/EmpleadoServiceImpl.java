@@ -47,7 +47,7 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 					+ empleado.getDni());
 		}
 		
-		Empleado emp = new Empleado();
+		Empleado emp = empleado;
 		emp.setEstado("Laborando");
 		emp.setClave(passwordEncoder.encode(empleado.getClave()));
 		

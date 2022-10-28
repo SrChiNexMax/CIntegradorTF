@@ -26,7 +26,11 @@ public class EmpleadoController {
     
     @PostMapping("/guardarEmpleado")
     public String save(Empleado empleado) {
-        empleadoService.guardar(empleado);
+    	try {
+			empleadoService.registrarNuevoEmpleado(empleado);
+		} catch (Exception e) {
+			return "redirect:/usuarios";
+		}
         
         return "redirect:/empleados";
     }
