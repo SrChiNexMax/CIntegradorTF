@@ -496,6 +496,29 @@
     text-align: center;
 }
 
+/*Estilo boton*/
+.accion_apartado{
+    display: inline-block;
+	width: 100%;
+	cursor: pointer;
+  	padding: 7px 10px;
+  	height: 42px;
+  	outline: 0; 
+  	border: 0;
+	border-radius: 0;
+	background: #f0f0f0;
+	color: #7b7b7b;
+	font-size: 1em;
+	color: #999;
+	font-family: 
+	'Quicksand', sans-serif;
+	border:2px solid rgba(0,0,0,0.2);
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.25s ease;
+}
+/*EndEstilo boton*/
+
 /* Tabla */
 /* *{
     box-sizing: border-box;
@@ -625,5 +648,37 @@ h2{
 } */
 
 /* End Tabla */
+
+/* Diseño ventanaFlotante */
+.ventana{
+    background-image: url(../img/SLFondo.png);
+    width:1000px;
+    padding: 10px 20px;
+    margin: 20% auto;
+    position: relative;
+    color: #f8f8f8;
+    border-radius: 20px;
+}
+.modal{
+    background-color: rgba(0,0,0,.8);
+    position:fixed;
+    top:-250px;
+    right:0;
+    bottom:0;
+    left:0;
+    opacity:0;
+    pointer-events:none;
+    transition: all 1s;
+    z-index: 100;
+}
+#IrVentanaMarca:target{
+    opacity:1;
+    pointer-events:auto;
+}
+#IrVentanaCategoria:target{
+    opacity:1;
+    pointer-events:auto;
+}
+/* Fin Diseño ventanaFlotante */
 
 /* FIN DE APARTADO */
