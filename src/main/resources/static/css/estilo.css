@@ -668,7 +668,7 @@ h2{
     left:0;
     opacity:0;
     pointer-events:none;
-    transition: all 1s;
+    transition: all 500ms;
     z-index: 100;
 }
 #IrVentanaMarca:target{

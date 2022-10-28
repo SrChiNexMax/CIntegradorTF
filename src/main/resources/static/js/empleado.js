@@ -20,7 +20,7 @@
     var fechaNacimientoInput = document.getElementById("fechaNacimiento")
     var fechaContratacionInput = document.getElementById("fechaContratacion")
     var direccionInput = document.getElementById("direccion")
-    var correoEletronicoInput = document.getElementById("email")
+    var correoEletronicoInput = document.getElementById("correoEletronico")
 	var estadoSelect = document.getElementById("estado")
 	codigoInput.value = codigo
 	nombreInput.value = nombre
