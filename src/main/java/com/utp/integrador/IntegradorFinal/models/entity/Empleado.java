@@ -16,6 +16,8 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 
 @Data
@@ -42,10 +44,11 @@ public class Empleado implements Serializable {
 	
 	@Column(nullable = true)
 	private int telefono;
-		
-	private Timestamp fechaNacimiento;
 	
-	private Timestamp fechaContratacion;
+	@DateTimeFormat(pattern = "YYYY-MM-dd")
+	private Date fechaNacimiento;
+	
+	private Date fechaContratacion;
 	
 	@Column(length = 150)
 	private String direccion; 
@@ -56,17 +59,5 @@ public class Empleado implements Serializable {
 	@Column(length = 150)
 	private String estado;
 	
-	public void setFechaNacimiento(Date fechaNacimiento) {
-		this.fechaNacimiento = validateDate(fechaNacimiento);
-	}
-	
-	public void setFechaContratacion(Date fechaContratacion) {
-		this.fechaContratacion = validateDate(fechaContratacion);
-	}
-	
-	private Timestamp validateDate(Date date) {
-		Timestamp ts = new Timestamp(date.getTime());
-		return ts;		
-	}
 	
 }
