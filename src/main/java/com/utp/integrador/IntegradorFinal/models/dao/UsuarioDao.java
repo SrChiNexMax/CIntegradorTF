@@ -6,5 +6,7 @@ import com.utp.integrador.IntegradorFinal.models.entity.Usuario;
 
 public interface UsuarioDao extends JpaRepository<Usuario, Long> {
 	
+	public Usuario findByNombre(String nombre);
+	
 }
  

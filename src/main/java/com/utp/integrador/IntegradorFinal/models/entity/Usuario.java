@@ -23,7 +23,7 @@ public class Usuario implements Serializable {
 	@OneToOne(mappedBy = "usuario")
 	private Empleado empleado;
 	
-	@Column(length = 100)
+	@Column(length = 100, unique = true)
 	private String nombre;
 	
 	@Column(length = 100)
