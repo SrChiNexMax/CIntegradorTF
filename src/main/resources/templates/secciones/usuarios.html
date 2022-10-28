@@ -78,12 +78,12 @@
                         </tr>
                         </thead>
                         <tbody>
-	                        <tr th:each="empleado: ${empleados}" th:id="'row' + ${empleados.idEmpleado}">
-	                            <td th:text="${empleados.idEmpleado}"></td>
-	                            <td	th:text="${empleados.nombre}"></td>
-	                            <td	th:text="${empleados.acceso}"></td>
+	                        <tr th:each="empleado: ${empleados}" th:id="'row' + ${empleado.idEmpleado}">
+	                            <td th:text="${empleado.idEmpleado}"></td>
+	                            <td	th:text="${empleado.nombre}"></td>
+	                            <td	th:text="${empleado.acceso}"></td>
 	                            <td hidden th:text="${empleados.clave}">
-	                            <td ><button th:onclick="|getData('row${empleados.idEmpleado}')|">Seleccionar</button></td>
+	                            <td ><button th:onclick="|getData('row${empleado.idEmpleado}')|">Seleccionar</button></td>
 	                        </tr>
                         </tbody>
                     </table>
