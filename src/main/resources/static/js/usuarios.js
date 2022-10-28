@@ -3,11 +3,11 @@
  */
  
  function getData(rowId) {
-	
-	var codigo = document.getElementById(rowId).childNodes[1].innerText
-	var nombre = document.getElementById(rowId).childNodes[3].innerText
-	var acceso = document.getElementById(rowId).childNodes[5].innerText
-	var clave = document.getElementById(rowId).childNodes[7].innerText
+	var tabla= document.getElementById(rowId).getElementsByTagName("td")
+	var codigo = tabla[0].innerHTML
+	var nombre = tabla[1].innerHTML
+	var acceso = tabla[2].innerHTML
+	var clave = tabla[3].innerHTML
 	var codigoInput = document.getElementById("idUsuario")
 	var nombreInput = document.getElementById("nombre")
 	var claveInput = document.getElementById("clave")

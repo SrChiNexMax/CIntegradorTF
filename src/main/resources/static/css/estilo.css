@@ -344,7 +344,7 @@
     max-width: 2000px;
     margin: auto;
     padding: 20px;
-    margin-top: 12vh;
+    margin-top: 5vh;
 
     display: grid;
     grid-template-columns: 4fr 1fr;

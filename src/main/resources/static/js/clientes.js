@@ -3,12 +3,12 @@
  */
  
  function getData(rowId) {
-	
-	var codigo = document.getElementById(rowId).childNodes[1].innerText
-    var dniRuc = document.getElementById(rowId).childNodes[3].innerText
-	var nombre = document.getElementById(rowId).childNodes[5].innerText
-	var telefono = document.getElementById(rowId).childNodes[7].innerText
-	var direccion = document.getElementById(rowId).childNodes[9].innerText
+	var tabla= document.getElementById(rowId).getElementsByTagName("td")
+	var codigo = tabla[0].innerHTML
+    var dniRuc = tabla[1].innerHTML
+	var nombre = tabla[2].innerHTML
+	var telefono = tabla[3].innerHTML
+	var direccion = tabla[4].innerHTML
 	var codigoInput = document.getElementById("idCliente")
     var dniRucInput = document.getElementById("dniRuc")
 	var nombreInput = document.getElementById("nombre")

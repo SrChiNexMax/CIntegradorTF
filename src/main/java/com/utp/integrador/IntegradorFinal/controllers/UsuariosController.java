@@ -6,35 +6,35 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.utp.integrador.IntegradorFinal.models.entity.Usuario;
-import com.utp.integrador.IntegradorFinal.services.UsuarioService;
+import com.utp.integrador.IntegradorFinal.models.entity.Empleado;
+import com.utp.integrador.IntegradorFinal.services.EmpleadoService;
+
 
 @Controller
 public class UsuariosController {
 	
 	@Autowired
-	private UsuarioService usuarioService;
+	private EmpleadoService empleadoService;
 	
 	
 	@GetMapping("/usuarios")
 	public String usuariosMainPage(Model model) {
-		var usuarios = usuarioService.listarUsuarios();
-		model.addAttribute("usuarios", usuarios);
+		var empleado = empleadoService.listarEmpleados();
+		model.addAttribute("usuarios", empleado);
 		
 		return "secciones/usuarios";
 	}
 	
 	@PostMapping("/guardarUsuario")
-	public String save(Usuario usuario) {
-		usuarioService.guardar(usuario);
+	public String save(Empleado empleado) {
+		empleadoService.guardar(empleado);
 		
 		return "redirect:/usuarios";
 	}
 	
-	@GetMapping("/eliminarUsuario")
-    public String eliminarUsuario(Usuario usuario){
-		usuarioService.eliminar(usuario);
-        return "redirect:/usuarios";
-    }
+	/*
+	 * @GetMapping("/eliminarUsuario") public String eliminarUsuario(Empleado
+	 * empleado){ empleadoService.eliminar(empleado); return "redirect:/usuarios"; }
+	 */
 	
 }
