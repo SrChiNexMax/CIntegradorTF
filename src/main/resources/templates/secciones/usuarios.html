@@ -12,7 +12,7 @@
 </head>
 
 <body class="fondoB">
-	<form hidden id="add" method="post" th:object="${empleado}" th:action="@{/guardarUsuario}" >
+	<form hidden id="add" method="post" th:object="${emp}" th:action="@{/guardarUsuario}" >
     	<input type="hidden" name="idEmpleado" id="idEmpleado">
     </form>
     
@@ -82,7 +82,6 @@
 	                            <td th:text="${empleado.idEmpleado}"></td>
 	                            <td	th:text="${empleado.nombre}"></td>
 	                            <td	th:text="${empleado.acceso}"></td>
-	                            <td hidden th:text="${empleado.clave}">
 	                            <td ><button th:onclick="|getData('row${empleado.idEmpleado}')|">Seleccionar</button></td>
 	                        </tr>
                         </tbody>

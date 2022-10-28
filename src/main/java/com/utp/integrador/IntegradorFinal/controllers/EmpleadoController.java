@@ -29,6 +29,7 @@ public class EmpleadoController {
     	try {
 			empleadoService.registrarNuevoEmpleado(empleado);
 		} catch (Exception e) {
+			System.out.println("Error al agregar empleado");
 			return "redirect:/usuarios";
 		}
         

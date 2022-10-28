@@ -1,6 +1,5 @@
 package com.utp.integrador.IntegradorFinal.services.implementation;
 
-import java.lang.reflect.Field;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +48,24 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 		}
 
 		Empleado emp = new Empleado();
+		emp.setIdEmpleado(empleado.getIdEmpleado());
+		emp.setAcceso(empleado.getAcceso());
+		emp.setDni(empleado.getDni());
+		emp.setEstado("Laborando");
+		emp.setClave(passwordEncoder.encode(empleado.getClave()));
 		
+		return empleadoDao.save(emp);
+	}
+	
+
+	@Override
+	@Transactional
+	public Empleado registrarNuevoUsuario(Empleado empleado){
+
+		Empleado emp = new Empleado();
+		emp.setIdEmpleado(empleado.getIdEmpleado());
+		emp.setNombre(empleado.getNombre());
+		emp.setAcceso(empleado.getAcceso());
 		emp.setEstado("Laborando");
 		emp.setClave(passwordEncoder.encode(empleado.getClave()));
 		

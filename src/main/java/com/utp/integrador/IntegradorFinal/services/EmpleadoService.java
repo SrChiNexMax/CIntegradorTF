@@ -14,4 +14,6 @@ public List<Empleado> listarEmpleados();
     
     public Empleado registrarNuevoEmpleado(Empleado empleado) throws Exception;
 
+	public Empleado registrarNuevoUsuario(Empleado empleado);
+
 }

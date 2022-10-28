@@ -21,17 +21,15 @@ public class UsuariosController {
 	public String usuariosMainPage(Model model) {
 		var empleados = empleadoService.listarEmpleados();
 		model.addAttribute("empleados", empleados);
-		
+		model.addAttribute("emp", new Empleado());
 		return "secciones/usuarios";
 	}
 	
 	@PostMapping("/guardarUsuario")
 	public String save(Empleado empleado) {
-		try {
-			empleadoService.registrarNuevoEmpleado(empleado);
-		} catch (Exception e) {
-			return "redirect:/usuarios";
-		}
+		
+		empleadoService.registrarNuevoUsuario(empleado);
+
 		
 		return "redirect:/usuarios";
 	}
