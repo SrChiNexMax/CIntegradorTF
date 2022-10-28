@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Almacen</title>
 	<link rel="stylesheet" href="css/estilo.css">
+    <script type='text/javascript' src="js/almacen.js"></script>
 </head>
 
 <body class="fondoB">
@@ -45,12 +46,15 @@
                 </a>
           </div>
           <h2>Marcas</h2>
+            <form hidden id="addMarca" method="post" th:object="${marca}" th:action="@{/guardarMarca}" >
+                <input type="hidden" name="idMarca" id="idMarca">
+            </form>
           <div style="margin-top: 15px;" class="contenedor_apartado">
             <div class="area_trabajo">
                 <div class="formulario_datos_apartado">
                     <div class="datos_apartado">
                         <div class="form__group field">
-                            <input required="" placeholder="Name" class="form__field" type="input">
+                            <input form="addMarca" required="" placeholder="Name" class="form__field" type="input" id="nombreMarca" name="nombreMarca">
                             <label class="form__label" for="name">Nombre</label>
                         </div>
                     </div>
@@ -66,11 +70,11 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>Content 1</td>
-                                <td>Content 1</td>
-                                <td>Content 1</td>
-                            </tr>
+                                <tr style="color: black;" th:each="marca: ${marcas}" th:id="'row' + ${marca.idMarca}">
+                                    <td th:text="${marca.idMarca}"></td>
+                                    <td	th:text="${marca.nombreMarca}"></td>
+                                    <td ><button th:onclick="|getDataMarca('row${marca.idMarca}')|">Seleccionar</button></td>
+                                </tr>
                             <tbody>
                         </table>
                     </div>
@@ -78,10 +82,10 @@
             </div>
             <div class="espacio_botones_apartado">
                 <div class="botones_apartado">
-                    <a href=""><button class="menubtn2 mbtn">Nuevo</button></a>
+                    <button type="submit" form="addMarca" class="menubtn2 mbtn">Nuevo</button>
                 </div>
                 <div class="botones_apartado">
-                    <a href=""><button class="menubtn2 mbtn">Modificar</button></a>
+                    <button type="submit" form="addMarca" class="menubtn2 mbtn">Modificar</button>
                 </div>
             </div>
         </div>
@@ -96,12 +100,15 @@
                 </a>
           </div>
           <h2>Categorias</h2>
+          <form hidden id="addCategoria" method="post" th:object="${categoria}" th:action="@{/guardarCategoria}" >
+            <input type="hidden" name="idCategoria" id="idCategoria">
+        </form>
           <div style="margin-top: 15px;" class="contenedor_apartado">
             <div class="area_trabajo">
                 <div class="formulario_datos_apartado">
                     <div class="datos_apartado">
                         <div class="form__group field">
-                            <input required="" placeholder="Name" class="form__field" type="input">
+                            <input form="addCategoria" placeholder="Name" class="form__field" type="input" id="nombreCategoria" name="nombreCategoria">
                             <label class="form__label" for="name">Nombre</label>
                         </div>
                     </div>
@@ -117,11 +124,11 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>Content 1</td>
-                                <td>Content 1</td>
-                                <td>Content 1</td>
-                            </tr>
+                                <tr style="color: black;" th:each="categoria: ${categorias}" th:id="'row' + ${categoria.idCategoria}">
+                                    <td th:text="${categoria.idCategoria}"></td>
+                                    <td	th:text="${categoria.nombreCategoria}"></td>
+                                    <td ><button th:onclick="|getDataCategoria('row${categoria.idCategoria}')|">Seleccionar</button></td>
+                                </tr>
                             <tbody>
                         </table>
                     </div>
@@ -129,10 +136,10 @@
             </div>
             <div class="espacio_botones_apartado">
                 <div class="botones_apartado">
-                    <a href=""><button class="menubtn2 mbtn">Nuevo</button></a>
+                    <button type="submit" form="addCategoria" class="menubtn2 mbtn">Nuevo</button>
                 </div>
                 <div class="botones_apartado">
-                    <a href=""><button class="menubtn2 mbtn">Modificar</button></a>
+                    <button type="submit" form="addCategoria" class="menubtn2 mbtn">Modificar</button>
                 </div>
             </div>
         </div>
@@ -154,9 +161,9 @@
                         <p>Marca:</p>
                     </div>
                     <div class="content-select">
-                        <select>
-                            <option>Nombres</option>
-                        </select>
+                        <select form="addProducto" id="marca" name="marca">
+							<option th:each="marca : ${marcas}" th:value="${marca.idMarca}" th:text="${marca.nombreMarca}"></option>
+						</select>
                     </div>
                     <div class="bton_accion">
                         <a href="#IrVentanaMarca"><button>+</button></a>
@@ -179,9 +186,9 @@
                         <p>Categoria:</p>
                     </div>
                     <div class="content-select">
-                        <select>
-                            <option>Nombres</option>
-                        </select>
+                        <select form="addProducto" id="categoria" name="categoria">
+							<option th:each="categoria : ${categorias}" th:value="${categoria.idCategoria}" th:text="${categoria.nombreCategoria}"></option>
+						</select>
                     </div>
                     <div class="bton_accion">
                         <a href="#IrVentanaCategoria"><button>+</button></a>

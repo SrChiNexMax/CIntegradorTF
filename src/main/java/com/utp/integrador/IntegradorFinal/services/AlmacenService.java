@@ -10,8 +10,6 @@ public interface AlmacenService {
 	
 	public void guardar(Almacen almacen);
 	
-	public void eliminar(Almacen almacen);
-	
 	public Almacen encontrarAlmacen(Almacen almacen);
 
 }

@@ -26,12 +26,6 @@ public class AlmacenServiceImpl implements AlmacenService {
 	}
 
 	@Override
-	public void eliminar(Almacen almacen) {
-
-
-	}
-
-	@Override
 	public Almacen encontrarAlmacen(Almacen almacen) {
 		return null;
 	}
