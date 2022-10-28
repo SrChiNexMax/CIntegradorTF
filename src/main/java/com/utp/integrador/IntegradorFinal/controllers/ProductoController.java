@@ -16,6 +16,7 @@ public class ProductoController {
     
     @PostMapping("/guardarProducto")
     public String save(Producto producto) {
+    	    	
         productoService.guardar(producto);
         
         return "redirect:/almacen";

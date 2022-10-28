@@ -34,5 +34,5 @@ public class EmpleadoController {
         
         return "redirect:/empleados";
     }
-
+    //TODO: ARREGLAR REGISTRO DE USUARIOS.
 }

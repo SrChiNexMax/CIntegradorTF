@@ -28,11 +28,6 @@ public class Producto implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idProducto;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "idProducto")
-	@MapsId
-	private Almacen almacen;
-	
 	@Column(length = 250)
 	private String nombreProducto;
 	
@@ -46,5 +41,13 @@ public class Producto implements Serializable {
 	@ManyToOne
 	@JoinColumn(nullable = false, name = "idCategoria", referencedColumnName = "idCategoria")
 	private Categoria categoria;
+	
+	
+	private int unidadesExistentes;
+	
+	@Column(nullable = true)
+	private int unidadesEnPedido;
+	
+	private boolean estaSuspendido;
 	
 }

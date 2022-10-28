@@ -7,6 +7,7 @@
 	<title>Almacen</title>
 	<link rel="stylesheet" href="css/estilo.css">
     <script type='text/javascript' src="js/almacen.js"></script>
+    <script type='text/javascript' src="js/jquery.js"></script>
 </head>
 
 <body class="fondoB">
@@ -92,7 +93,7 @@
         </div>  
       </div>
 
-      <div id="IrVentanaCategoria" class="modal">
+    <div id="IrVentanaCategoria" class="modal">
         <div class="ventana">
           <div style="text-align: right;">
             <a href="#" style='text-decoration:none;'>
@@ -146,17 +147,18 @@
         </div>  
       </div>
 
-        <form hidden id="addProducto" method="post" th:object="${producto}" th:action="@{/guardarProducto}" >
-            <input type="hidden" name="idProducto" id="idProducto">
-        </form>
+    <form hidden id="addProducto" method="post" th:object="${productoNew}" th:action="@{/guardarProducto}" >
+        <input type="hidden" id="idProducto" name="idProducto">
+    </form>
 
     <div class="contenedor_apartado">
         <div class="area_trabajo">
+        
             <div class="formulario_datos_apartado">
                 <div class="datos_apartado">
                     <div class="form__group field">
                         <input type="text" form="addProducto" required placeholder="Descripcion" class="form__field" id="nombreProducto" name="nombreProducto">
-                        <label class="form__label" for="name">Descripcion</label>
+                        <label class="form__label" for="name">Descripci&oacute;n</label>
                     </div>
                 </div>
                 <div class="datos_apartado">
@@ -203,8 +205,8 @@
                     </div>
                     <div class="content-select">
                         <select form="addProducto" id="estaSuspendido" name="estaSuspendido">
-                            <option>Si</option>
-                            <option>No</option>
+                            <option value="true">Si</option>
+                            <option value="false">No</option>
                         </select>
                     </div>
                 </div>
@@ -221,18 +223,18 @@
                             <th>Categoria</th>
                             <th>Stock</th>
                             <th>Suspendido</th>
+                            <th style="width: 100px"></th>
                         </tr>
                         </thead>
                         <tbody>
                             <tr th:each="producto: ${productos}" th:id="'row' + ${producto.idProducto}">
 	                            <td th:text="${producto.idProducto}"></td>
-                                <td hidden th:text="${producto.almacen.idProducto}"></td>
-	                            <td	th:text="${producto.nombreProducto}"></td>
+                               	<td	th:text="${producto.nombreProducto}"></td>
 	                            <td	th:text="${producto.precioUnidad}"></td>
 	                            <td th:text="${producto.marca.nombreMarca}"></td>
                                 <td th:text="${producto.categoria.nombreCategoria}"></td>
-                                <td	th:text="${producto.almacen.unidadesExistentes}"></td>
-                                <td	th:text="${producto.almacen.estaSuspendido}"></td>
+                                <td	th:text="${producto.unidadesExistentes}"></td>
+                                <td	th:text="${producto.estaSuspendido} ? 'Sí' : 'No' "></td>
 	                            <td ><button th:onclick="|getDataProducto('row${producto.idProducto}')|">Seleccionar</button></td>
 	                        </tr>
                         <tbody>

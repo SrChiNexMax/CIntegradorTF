@@ -1,5 +1,6 @@
 package com.utp.integrador.IntegradorFinal.services.implementation;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,14 +47,13 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 			throw new Exception("Ya existe una cuenta registrada con el DNI: "
 					+ empleado.getDni());
 		}
+
+		Empleado emp = new Empleado();
 		
-		Empleado emp = empleado;
 		emp.setEstado("Laborando");
 		emp.setClave(passwordEncoder.encode(empleado.getClave()));
 		
 		return empleadoDao.save(emp);
-					
-		
 	}
 	
 	private boolean existeEmpleado(String dni) {
