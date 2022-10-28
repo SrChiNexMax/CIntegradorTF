@@ -10,7 +10,8 @@ public List<Empleado> listarEmpleados();
     
     public void guardar(Empleado empleado);
     
-    
     public Empleado encontrarEmpleado(Empleado empleado);
+    
+    public Empleado registrarNuevoEmpleado(Empleado empleado) throws Exception;
 
 }

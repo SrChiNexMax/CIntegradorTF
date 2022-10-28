@@ -19,15 +19,19 @@ public class UsuariosController {
 	
 	@GetMapping("/usuarios")
 	public String usuariosMainPage(Model model) {
-		var empleado = empleadoService.listarEmpleados();
-		model.addAttribute("usuarios", empleado);
+		var empleados = empleadoService.listarEmpleados();
+		model.addAttribute("empleados", empleados);
 		
 		return "secciones/usuarios";
 	}
 	
 	@PostMapping("/guardarUsuario")
 	public String save(Empleado empleado) {
-		empleadoService.guardar(empleado);
+		try {
+			empleadoService.registrarNuevoEmpleado(empleado);
+		} catch (Exception e) {
+			return "redirect:/usuarios";
+		}
 		
 		return "redirect:/usuarios";
 	}

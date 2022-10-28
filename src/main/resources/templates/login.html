@@ -14,7 +14,7 @@
 			<h2>Inicio de Sesi&oacute;n</h2>
 			<form method="POST" th:action="@{/login}">
 				<div class="usuario">
-					<input type="text" name="username" id="username" placeholder="Usuario" required>
+					<input type="text" name="username" id="username" placeholder="DNI" required>
 				</div>
 				<div class="usuario">
 					<input type="password" name="password" id="password" placeholder="Contrase&ntilde;a" required>
@@ -24,7 +24,7 @@
 				</center>
 			</form>
 			<div class="msg" th:if="${param.error}">
-				Usuario o contrase&ntilde;a incorrectos.
+				DNI o contrase&ntilde;a incorrectos.
 			</div>
 			<div class="msg" th:if="${param.logout}">
 				Has cerrado sesi&oacute;n.

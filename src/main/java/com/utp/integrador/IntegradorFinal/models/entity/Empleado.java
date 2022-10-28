@@ -33,12 +33,11 @@ public class Empleado implements Serializable {
 	
 	@Column(length = 150)
 	private String nombre;
+
+	@Column(length = 8)
+	private String dni;
 	
-	@Column(nullable = true)
-	private int dni;
-	
-	@Column(nullable = true)
-	private int telefono;
+	private String telefono;
 	
 	@Column(length = 100)
 	private String clave;

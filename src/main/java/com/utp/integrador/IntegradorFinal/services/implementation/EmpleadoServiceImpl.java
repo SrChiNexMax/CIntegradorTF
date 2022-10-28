@@ -3,6 +3,7 @@ package com.utp.integrador.IntegradorFinal.services.implementation;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,9 @@ public class EmpleadoServiceImpl implements EmpleadoService {
     
     @Autowired
     private EmpleadoDao empleadoDao;
+    
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     @Transactional(readOnly = true)
@@ -34,5 +38,28 @@ public class EmpleadoServiceImpl implements EmpleadoService {
     public Empleado encontrarEmpleado(Empleado empleado) {
             return empleadoDao.findById(empleado.getIdEmpleado()).orElse(null);
     }
+
+	@Override
+	@Transactional
+	public Empleado registrarNuevoEmpleado(Empleado empleado) throws Exception {
+		if(existeEmpleado(empleado.getDni())) {
+			throw new Exception("Ya existe una cuenta registrada con el DNI: "
+					+ empleado.getDni());
+		}
+		
+		Empleado emp = new Empleado();
+		emp.setEstado("Laborando");
+		emp.setClave(passwordEncoder.encode(empleado.getClave()));
+		
+		return empleadoDao.save(emp);
+					
+		
+	}
+	
+	private boolean existeEmpleado(String dni) {
+		return empleadoDao.findByDni(dni) != null;
+	}
+
+	
 
 }
