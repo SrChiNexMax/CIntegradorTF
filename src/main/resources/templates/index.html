@@ -10,6 +10,23 @@
 
 <body class="fondoB">
 	<center>
+		<div class="dv">
+			<div class="dv1">
+			</div>
+			<div class="dv2">
+					<div class="headermenu">
+						<form method="POST" th:action="@{/logout}">
+							<a href="#" onclick="this.parentNode.submit();">
+								<button class="menubtn">
+									Logout
+								</button></a>
+						</form>
+							<div class="menuuser">
+									<p sec:authentication="name">Usuario</p>
+							</div>
+					</div>
+			</div>
+	</div>
 		<div class="indexcontenedor">
 			<div class="indexbutton">
 				<a type="button" th:href="@{/ventas}">
@@ -92,15 +109,9 @@
 					<p>No existen registros</p>
 				</div>
  			-->
- 			<div>
-				<form method="POST" th:action="@{/logout}">
-					<a href="#" onclick="this.parentNode.submit();">Logout</a>
-				</form>
-			</div>
 			
 		</div>
 	</center>
-
 </body>
 
 </html>
