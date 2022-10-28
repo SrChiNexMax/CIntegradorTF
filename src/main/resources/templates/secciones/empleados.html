@@ -8,12 +8,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Empleados</title>
 	<link rel="stylesheet" href="css/estilo.css">
-	<script type='text/javascript' src="js/usuarios.js"></script>
+	<script type='text/javascript' src="js/empleado.js"></script>
 </head>
 
 <body class="fondoB">
-	<form hidden id="add" method="post" th:object="${usuario}" th:action="@{/guardarUsuario}" >
-    	<input type="hidden" name="idUsuario" id="idUsuario">
+	<form hidden id="add" method="post" th:object="${empleado}" th:action="@{/guardarEmpleado}" >
+    	<input type="hidden" name="idEmpleado" id="idEmpleado">
     </form>
     
     <div class="dv">
@@ -44,7 +44,7 @@
             <div class="formulario_datos_apartado">
                 <div class="datos_apartado">
                     <div class="form__group field">
-                        <input type="text" form="add" required placeholder="DNI" class="form__field" id="DNI" name="DNI">
+                        <input type="text" form="add" required placeholder="DNI" class="form__field" id="dni" name="dni">
                         <label class="form__label" for="name">DNI</label>
                     </div>
                 </div>
@@ -62,20 +62,20 @@
                 </div>
                 <div class="datos_apartado">
                     <div class="form__group field">
-                        <input type="date" form="add" required placeholder="FechaNacimiento" class="form__field" id="FechaNacimiento" name="FechaNacimiento">
+                        <input type="date" form="add" required placeholder="FechaNacimiento" class="form__field" id="fechaNacimiento" name="fechaNacimiento">
                         <label class="form__label" for="name">Fecha Nacimiento</label>
                     </div>
                 </div>
                 <div class="datos_apartado">
                     <div class="form__group field">
-                        <input type="date" form="add" required placeholder="FechaContratacion" class="form__field" id="FechaContratacion" name="FechaContratacion">
+                        <input type="date" form="add" required placeholder="FechaContratacion" class="form__field" id="fechaContratacion" name="fechaContratacion">
                         <label class="form__label" for="name">Fecha Contratacion</label>
                     </div>
                 </div>
                 <div class="datos_apartado">
                     <div class="form__group field">
-                        <input type="text" form="add" required placeholder="Dirrecion" class="form__field" id="dirrecion" name="dirrecion">
-                        <label class="form__label" for="name">Dirreci&oacuten</label>
+                        <input type="text" form="add" required placeholder="Direccion" class="form__field" id="direccion" name="direccion">
+                        <label class="form__label" for="name">Direcci&oacute;n</label>
                     </div>
                 </div>
                 <div class="datos_apartado">
@@ -89,7 +89,7 @@
                         <p>Estado:</p>
                     </div>
                     <div class="content-select">
-                        <select form="add" id="acceso" name="acceso">
+                        <select form="add" id="estado" name="estado">
                             <option>Laborando</option>
                             <option>Suspendido</option>
                         </select>
@@ -101,8 +101,8 @@
                     <table class="fl-table">
                         <thead>
                         <tr>
-                            <th>CodEmpleado</th>
-                            <th>CodUsuario</th>
+                            <th hidden>CodEmpleado</th>
+                            <th hidden>CodUsuario</th>
                             <th>Nombre</th>
                             <th>Dni</th>
                             <th>Telefono</th>
@@ -116,17 +116,17 @@
                         </thead>
                         <tbody>
 	                        <tr th:each="empleado: ${empleados}" th:id="'row' + ${empleado.idEmpleado}">
-	                            <td th:text="${empleado.idEmpleado}"></td>
-                                <td th:text="${empleado.idUsuario}"></td>
+	                            <td hidden th:text="${empleado.idEmpleado}"></td>
+                                <td hidden th:text="${empleado.usuario.idUsuario}"></td>
 	                            <td	th:text="${empleado.nombre}"></td>
 	                            <td	th:text="${empleado.dni}"></td>
                                 <td	th:text="${empleado.telefono}"></td>
-                                <td	th:text="${empleado.fechaNacimiento}"></td>
-                                <td	th:text="${empleado.fechaContratacion}"></td>
+                                <td	th:text="${#dates.format(empleado.fechaNacimiento, 'yyyy-MM-dd')}"></td> 
+                                <td	th:text="${#dates.format(empleado.fechaContratacion, 'yyyy-MM-dd')}"></td>
                                 <td	th:text="${empleado.direccion}"></td>
-                                <td	th:text="${empleado.correoElectronico}"></td>
+                                <td	th:text="${empleado.correoEletronico}"></td>
                                 <td	th:text="${empleado.estado}"></td>
-	                            <td ><button th:onclick="">Seleccionar</button></td>
+	                            <td ><button th:onclick="|getData('row${empleado.idEmpleado}')|">Seleccionar</button></td>
 	                        </tr>
                         </tbody>
                     </table>
@@ -138,7 +138,7 @@
                 <a style="text-decoration: none;" th:href="@{/usuarios}"><button class="menubtn2 mbtn">Regresar</button></a>
             </div>
             <div class="botones_apartado">
-                <button type="" form="add" class="menubtn2 mbtn">Modificar</button>
+                <button type="submit" form="add" class="menubtn2 mbtn">Modificar</button>
             </div>
         </div>
     </div>
