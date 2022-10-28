@@ -48,6 +48,7 @@ public class Empleado implements Serializable {
 	@DateTimeFormat(pattern = "YYYY-MM-dd")
 	private Date fechaNacimiento;
 	
+	@DateTimeFormat(pattern = "YYYY-MM-dd")
 	private Date fechaContratacion;
 	
 	@Column(length = 150)
