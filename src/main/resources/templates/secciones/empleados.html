@@ -102,7 +102,6 @@
                         <thead>
                         <tr>
                             <th hidden>CodEmpleado</th>
-                            <th hidden>CodUsuario</th>
                             <th>Nombre</th>
                             <th>Dni</th>
                             <th>Telefono</th>
@@ -117,7 +116,6 @@
                         <tbody>
 	                        <tr th:each="empleado: ${empleados}" th:id="'row' + ${empleado.idEmpleado}">
 	                            <td hidden th:text="${empleado.idEmpleado}"></td>
-                                <td hidden th:text="${empleado.usuario.idUsuario}"></td>
 	                            <td	th:text="${empleado.nombre}"></td>
 	                            <td	th:text="${empleado.dni}"></td>
                                 <td	th:text="${empleado.telefono}"></td>
