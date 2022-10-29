@@ -74,7 +74,7 @@
                             <th>Codigo</th>
                             <th>Nombre</th>
                             <th>Rol</th>
-                            <th style="width:100px"></th> 
+                            <th style="width:120px"></th> 
                         </tr>
                         </thead>
                         <tbody>
@@ -82,7 +82,7 @@
 	                            <td th:text="${empleado.idEmpleado}"></td>
 	                            <td	th:text="${empleado.nombre}"></td>
 	                            <td	th:text="${empleado.acceso}"></td>
-	                            <td ><button th:onclick="|getData('row${empleado.idEmpleado}')|">Seleccionar</button></td>
+	                            <td ><button th:id="'button' + ${empleado.idEmpleado}" th:onclick="|getData('row${empleado.idEmpleado}')|">Seleccionar</button></td>
 	                        </tr>
                         </tbody>
                     </table>
@@ -91,7 +91,7 @@
         </div>
         <div class="espacio_botones_apartado">
             <div class="botones_apartado">
-                <button type="submit" class="menubtn2 mbtn" form="add">Agregar</button>
+                <button id="agregar" type="submit" class="menubtn2 mbtn" form="add">Agregar</button>
             </div>
             <div class="botones_apartado">
                 <button type="submit" form="add" class="menubtn2 mbtn">Modificar</button>
