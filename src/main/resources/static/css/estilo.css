@@ -494,6 +494,8 @@
 .botones_apartado{
     padding: 5px;
     text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 /*Estilo boton*/

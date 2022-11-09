@@ -57,3 +57,7 @@ function getDataProducto(pId) {
     console.log(unidadesExistentes)
     console.log(estaSuspendido)
 }
+
+function limpiarCampos(){
+	window.location='/almacen';
+}

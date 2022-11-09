@@ -6,7 +6,7 @@ import com.utp.integrador.IntegradorFinal.models.entity.Cliente;
 
 public interface ClienteService {
 	
-	public List<Cliente> listarClientes();
+	public List<Cliente> listarClientes(String palabraClave);
     
     public void guardar(Cliente cliente);
 

@@ -107,6 +107,20 @@
                 <div class="botones_apartado">
                     <button type="submit" form="delete" class="menubtn2 mbtn">Eliminar/Suspender</button>
                 </div>
+                <div class="botones_apartado">
+                    <form id="buscador" th:action="@{/clientes}">
+                        <div class="form__group field">
+                            <input type="text" name="palabraClave" class="form__field" id="palabraClave" th:value="${palabraClave}" required>
+                            <label class="form__label" for="name">Filtrar</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="botones_apartado">
+                    <button type="submit" form="buscador" class="menubtn2 mbtn">Buscar</button>
+                </div>
+                <div class="botones_apartado">
+                    <button type="button" class="menubtn2 mbtn" onclick="limpiarCampos()">Limpiar</button>
+                </div>
             </div>
         </div>
     </center>

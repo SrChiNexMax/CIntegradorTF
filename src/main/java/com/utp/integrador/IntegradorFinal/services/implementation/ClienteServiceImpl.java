@@ -18,7 +18,10 @@ public class ClienteServiceImpl implements ClienteService{
 
     @Override
     @Transactional(readOnly = true)
-    public List<Cliente> listarClientes() {
+    public List<Cliente> listarClientes(String palabraClave) {
+        if(palabraClave !=null){
+            return (List<Cliente>) clienteDao.filtrarClientes(palabraClave);
+        }
         return (List<Cliente>) clienteDao.findAll();
     }
 

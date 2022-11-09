@@ -26,3 +26,7 @@
 	console.log(direccion)
 	
 }
+
+function limpiarCampos(){
+	window.location='/clientes';
+}

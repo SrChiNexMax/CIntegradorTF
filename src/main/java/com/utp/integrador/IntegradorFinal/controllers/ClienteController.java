@@ -1,6 +1,7 @@
 package com.utp.integrador.IntegradorFinal.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,8 +17,11 @@ public class ClienteController {
 	private ClienteService clienteService;
 	
 	@GetMapping("/clientes")
-	public String clientesMainPage(Model model) {
-		var clientes = clienteService.listarClientes();
+	public String clientesMainPage(Model model,@Param("palabraClave") String palabraClave) {
+
+		model.addAttribute("palabraClave", palabraClave);
+		
+		var clientes = clienteService.listarClientes(palabraClave);
 		model.addAttribute("clientes", clientes);
 
 		return "secciones/clientes";

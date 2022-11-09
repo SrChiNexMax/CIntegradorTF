@@ -6,7 +6,7 @@ import com.utp.integrador.IntegradorFinal.models.entity.Producto;
 
 public interface ProductoService {
     
-public List<Producto> listarProductos();
+    public List<Producto> listarProductos(String palabraClave);
     
     public void guardar(Producto producto);
     

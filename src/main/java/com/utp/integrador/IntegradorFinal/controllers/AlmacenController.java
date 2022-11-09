@@ -1,6 +1,7 @@
 package com.utp.integrador.IntegradorFinal.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,14 +26,17 @@ public class AlmacenController {
     public ProductoService productoService;
 	
 	@GetMapping("/almacen")
-	public String almacenMainPage(Model model) {
+	public String almacenMainPage(Model model,@Param("palabraClave") String palabraClave) {
+
+        model.addAttribute("palabraClave", palabraClave);
+
 	    var marcas = marcaService.listarMarcas();
         model.addAttribute("marcas", marcas);
         
         var categorias = categoriaService.listarCategorias();
         model.addAttribute("categorias", categorias);
         
-        var productos = productoService.listarProductos();
+        var productos = productoService.listarProductos(palabraClave);  
         model.addAttribute("productos", productos);
         
         Marca marca = new Marca();

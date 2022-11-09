@@ -14,7 +14,6 @@
 	<center>
 		<div class="dv">
 			<div class="dv1">
-
 			</div>
 			<div class="dv2">
 				<div class="headermenu">
@@ -249,7 +248,18 @@
                 <button type="submit" form="addProducto" class="menubtn2 mbtn">Modificar</button>
             </div>
             <div class="botones_apartado">
-                <a href=""><button class="menubtn2 mbtn">Buscar Producto</button></a>
+                <form id="buscador" th:action="@{/almacen}">
+                    <div class="form__group field">
+                        <input type="text" name="palabraClave" class="form__field" id="palabraClave" th:value="${palabraClave}" required>
+                        <label class="form__label" for="name">Filtrar</label>
+                    </div>
+                </form>
+            </div>
+            <div class="botones_apartado">
+                <button type="submit" form="buscador" class="menubtn2 mbtn">Buscar Producto</button>
+            </div>
+            <div class="botones_apartado">
+                <button type="button" class="menubtn2 mbtn" onclick="limpiarCampos()">Limpiar</button>
             </div>
         </div>
     </div>

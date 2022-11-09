@@ -18,7 +18,10 @@ public class ProductoServiceImpl implements ProductoService{
 
     @Override
     @Transactional(readOnly = true)
-    public List<Producto> listarProductos() {
+    public List<Producto> listarProductos(String palabraClave) {
+        if(palabraClave != null){
+            return (List<Producto>) productoDao.filtrarProductos(palabraClave);
+        }
         return (List<Producto>) productoDao.findAll();
     }
 
