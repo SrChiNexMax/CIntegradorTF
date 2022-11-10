@@ -20,11 +20,18 @@ public class EmpleadoServiceImpl implements EmpleadoService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+	@Override
+    @Transactional(readOnly = true)
+    public List<Empleado> listarUsuarios(String estado) {
+        return (List<Empleado>) empleadoDao.findLaborando(estado);
+    }
+
     @Override
     @Transactional(readOnly = true)
     public List<Empleado> listarEmpleados() {
         return (List<Empleado>) empleadoDao.findAll();
     }
+
 
     @Override
     @Transactional
@@ -76,6 +83,10 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 		return empleadoDao.findByDni(dni) != null;
 	}
 
-	
+	@Override
+	@Transactional
+	public void modificarEmpleado(Empleado empleado){
+		empleadoDao.modificarEmpleado(empleado.getIdEmpleado(), empleado.getNombre(), empleado.getDni(), empleado.getTelefono(), empleado.getFechaNacimiento(), empleado.getFechaContratacion(), empleado.getDireccion(), empleado.getCorreoEletronico(), empleado.getEstado());
+	}
 
 }

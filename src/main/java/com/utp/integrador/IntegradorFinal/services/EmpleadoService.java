@@ -6,7 +6,9 @@ import com.utp.integrador.IntegradorFinal.models.entity.Empleado;
 
 public interface EmpleadoService {
     
-public List<Empleado> listarEmpleados();
+    public List<Empleado> listarUsuarios(String estado);
+    
+    public List<Empleado> listarEmpleados();
     
     public void guardar(Empleado empleado);
     
@@ -15,5 +17,7 @@ public List<Empleado> listarEmpleados();
     public Empleado registrarNuevoEmpleado(Empleado empleado) throws Exception;
 
 	public Empleado registrarNuevoUsuario(Empleado empleado);
+
+    public void modificarEmpleado(Empleado empleado);
 
 }

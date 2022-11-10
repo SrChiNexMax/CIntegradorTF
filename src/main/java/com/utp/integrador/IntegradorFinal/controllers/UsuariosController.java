@@ -19,7 +19,10 @@ public class UsuariosController {
 	
 	@GetMapping("/usuarios")
 	public String usuariosMainPage(Model model) {
-		var empleados = empleadoService.listarEmpleados();
+
+		String estado= "Laborando";
+
+		var empleados = empleadoService.listarUsuarios(estado);
 		model.addAttribute("empleados", empleados);
 		model.addAttribute("emp", new Empleado());
 		return "secciones/usuarios";

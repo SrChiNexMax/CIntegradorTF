@@ -36,4 +36,10 @@ public class EmpleadoController {
         return "redirect:/empleados";
     }
     //TODO: ARREGLAR REGISTRO DE USUARIOS.
+
+    @PostMapping("/modificarEmpleado")
+    public String modificar(Empleado empleado){
+        empleadoService.modificarEmpleado(empleado);
+        return "redirect:/empleados";
+    }
 }
