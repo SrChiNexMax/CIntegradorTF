@@ -89,4 +89,10 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 		empleadoDao.modificarEmpleado(empleado.getIdEmpleado(), empleado.getNombre(), empleado.getDni(), empleado.getTelefono(), empleado.getFechaNacimiento(), empleado.getFechaContratacion(), empleado.getDireccion(), empleado.getCorreoEletronico(), empleado.getEstado());
 	}
 
+	@Override
+	@Transactional
+	public void modificarUsuario(Empleado empleado){
+		empleadoDao.modificarUsuario(empleado.getIdEmpleado(), empleado.getNombre(), empleado.getClave(), empleado.getAcceso());
+	}
+
 }

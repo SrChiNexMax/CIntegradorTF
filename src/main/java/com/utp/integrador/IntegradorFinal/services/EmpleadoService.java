@@ -18,6 +18,8 @@ public interface EmpleadoService {
 
 	public Empleado registrarNuevoUsuario(Empleado empleado);
 
+    public void modificarUsuario(Empleado empleado);
+
     public void modificarEmpleado(Empleado empleado);
 
 }

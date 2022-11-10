@@ -18,13 +18,18 @@ public interface EmpleadoDao extends JpaRepository<Empleado, Long> {
 	public Empleado findByDni(String dni);
 
 	@Modifying
+	@Query("UPDATE Empleado e SET e.nombre = :nombre, e.clave = :clave, e.acceso = :acceso WHERE e.idEmpleado = :idEmpleado")
+	void modificarUsuario(@Param(value = "idEmpleado") long idEmpleado, @Param(value = "nombre") String nombre, 
+	@Param(value = "clave") String clave, @Param(value = "acceso") String acceso);
+
+	@Modifying
 	@Query("UPDATE Empleado e SET e.nombre = :nombre, e.dni = :dni, e.telefono = :telefono,"
 	+ " e.fechaNacimiento = :fechaNacimiento, e.fechaContratacion = :fechaContratacion,"
 	+ " e.direccion = :direccion, e.correoEletronico = :correoEletronico, e.estado = :estado"
 	+ " WHERE e.idEmpleado = :idEmpleado")
 	void modificarEmpleado(@Param(value = "idEmpleado") long idEmpleado, @Param(value = "nombre") String nombre, 
-		@Param(value = "dni") String dni, @Param(value = "telefono") String telefono, 
-		@Param(value = "fechaNacimiento") Date fechaNacimiento, @Param(value = "fechaContratacion") Date fechaContratacion, 
-		@Param(value = "direccion") String direccion, @Param(value = "correoEletronico") String correoEletronico, @Param(value = "estado") String estado);
+	@Param(value = "dni") String dni, @Param(value = "telefono") String telefono, 
+	@Param(value = "fechaNacimiento") Date fechaNacimiento, @Param(value = "fechaContratacion") Date fechaContratacion, 
+	@Param(value = "direccion") String direccion, @Param(value = "correoEletronico") String correoEletronico, @Param(value = "estado") String estado);
 	
 }

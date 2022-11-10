@@ -30,10 +30,13 @@ public class UsuariosController {
 	
 	@PostMapping("/guardarUsuario")
 	public String save(Empleado empleado) {
-		
-		empleadoService.registrarNuevoUsuario(empleado);
 
-		
+		if(empleado.getIdEmpleado() !=null){
+			empleadoService.modificarUsuario(empleado);
+			return "redirect:/usuarios";
+		}
+
+		empleadoService.registrarNuevoUsuario(empleado);
 		return "redirect:/usuarios";
 	}
 	
