@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nueva Venta</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <script type='text/javascript' src="js/nuevaVentas.js"></script>
+</head>
+
+<body class="fondoB">
+    <form hidden id="add" method="post">
+    	<input type="hidden" name="idCliente" id="idCliente">
+    </form>
+    <form hidden id="delete" method="get" >
+    	<input type="hidden" name="idCliente" id="idCliente">
+    </form>
+    <center>
+        <div class="dv">
+            <div class="dv1">
+            </div>
+            <div class="dv2">
+                <div class="headermenu">
+                    <a type="button" th:href="@{/}">
+                        <button class="menubtn">
+                            <span class="menuicon">
+                                <svg viewBox="0 0 175 80" width="40" height="40">
+                                    <rect width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                                    <rect y="30" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                                    <rect y="60" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                                </svg>
+                            </span>
+                            <span class="menutext">MENU</span>
+                        </button>
+                    </a>
+                    <div class="menuuser">
+                        <p sec:authentication="name">Usuario</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form hidden id="" method="post">
+            <input type="hidden" name="" id="">
+        </form>
+
+        <div class="formulario_datos_apartado" style="margin-left: 5%; margin-bottom: 2%;">
+            <div class="datos_apartado">
+                <div class="form__group field">
+                    <input form="" required="" placeholder="Name" class="form__field" disabled type="text" id="idCliente" name="idCliente" th:value="${clientes.idCliente}">
+                    <label class="form__label" for="name">Id</label>
+                </div>
+            </div>
+            <div class="datos_apartado">
+                <div class="form__group field">
+                    <input required="" form="buscador" placeholder="Name" class="form__field" type="text" id="dniRuc" name="dniRuc" th:value="${dniRuc}">
+                    <label class="form__label" for="name">DNI</label>
+                </div>
+                <div class="bton_accion">
+                    <button type="submit" form="buscador">O</button>
+                </div>
+            </div>
+            <div class="datos_apartado">
+                <div class="form__group field">
+                    <input form="" required="" placeholder="Name" class="form__field" disabled type="text" id="nombre" name="nombre" th:value="${clientes.nombre}">
+                    <label class="form__label" for="name">Nombre</label>
+                </div>
+            </div>
+        </div>
+        <form  id="buscador" th:action="@{/nuevaVentas}">
+        </form>
+        <input required="" placeholder="Name" class="form__field" hidden type="text" id="idProducto" name="idProducto">
+        <hr>
+        <div style="margin-top: 15px;" class="contenedor_apartado">
+            <div class="area_trabajo">
+                <div class="formulario_datos_apartado">
+                    <div class="datos_apartado">
+                        <div class="form__group field">
+                            <input required="" form="buscador" oninput="obtenerDato()" placeholder="Name" class="form__field" type="text" id="idPro" name="idPro" th:value="${idPro}">
+                            <label class="form__label" for="name">Codigo</label>
+                        </div>
+                        <div class="bton_accion">
+                            <button type="submit" form="buscador">O</button>
+                        </div>
+                    </div>
+                    <div class="datos_apartado">
+                        <div class="form__group field">
+                            <input form="" required="" placeholder="Name" class="form__field" disabled type="input" id="nombreProducto" name="nombreProducto" th:value="${productos.nombreProducto}">
+                            <label class="form__label" for="name">Descripcion</label>
+                        </div>
+                    </div>
+                    <div class="datos_apartado">
+                        <div class="form__group field">
+                            <input form="" required="" placeholder="Name" class="form__field" type="input" id="cantidad" name="cantidad">
+                            <label class="form__label" for="name">Cantidad</label>
+                        </div>
+                    </div>
+                    <div class="datos_apartado">
+                        <div class="form__group field">
+                            <input form="" required="" placeholder="Name" class="form__field" disabled type="input" id="precioUnidad" name="precioUnidad" th:value="${productos.precioUnidad}">
+                            <label class="form__label" for="name">Precio</label>
+                        </div>
+                    </div>
+                    <div class="datos_apartado">
+                        <div class="form__group field">
+                            <input form="" required="" placeholder="Name" class="form__field" disabled type="input" id="unidadesExistentes" name="unidadesExistentes" th:value="${productos.unidadesExistentes}">
+                            <label class="form__label" for="name">Stock</label>
+                        </div>
+                    </div>
+                    <div class="datos_apartado">
+                        <div class="etiqueta">
+                            <p>Tipo de Comprobante:</p>
+                        </div>
+                        <div class="content-select">
+                            <select form="addProducto" id="comprobante" name="comprobante">
+                                <option>Boleta</option>
+                                <option>Factura</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="tabla_apartado">
+                    <div class="table-wrapper">
+                        <table class="fl-table">
+                            <thead>
+                            <tr>
+                                <th>Codigo</th>
+                                <th>Descripcion</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Tipo Comprobante</th>
+                                <th style="width:100px"></th>
+                                <th style="width:100px"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="color: black;" th:each="marca: ${marcas}" th:id="'m' + ${marca.idMarca}">
+                                    <td th:text="${marca.idMarca}"></td>
+                                    <td	th:text="${marca.nombreMarca}"></td>
+                                    <td ><button th:onclick="|getDataMarca('m${marca.idMarca}')|">Seleccionar</button></td>
+                                </tr>
+                            <tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="espacio_botones_apartado">
+                <div class="botones_apartado">
+                    <button type="submit" form="" class="menubtn2 mbtn">Nuevo</button>
+                </div>
+                <div class="botones_apartado">
+                    <button type="submit" form="" class="menubtn2 mbtn">Modificar</button>
+                </div>
+                <br><br><br><br><br><br><br><br><br>
+                <div class="botones_apartado">
+                    <div class="form__group field" style="width: 250px;">
+                        <input disabled type="text" name="total" class="form__field" id="total" required>
+                        <label class="form__label" for="name">Total</label>
+                    </div>
+                </div>
+                <div class="botones_apartado">
+                    <button type="submit" form="" class="menubtn2 mbtn">Finalizar</button>
+                </div>
+            </div>
+        </div>
+    </center>
+</body>
+
+</html>

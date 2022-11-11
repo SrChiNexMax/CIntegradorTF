@@ -11,4 +11,6 @@ public interface ProductoService {
     public void guardar(Producto producto);
     
     public Producto encontrarProducto(Producto producto);
+
+    public Producto encontrarUnProducto(Long palabraClave);
 }

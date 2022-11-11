@@ -13,4 +13,7 @@ public interface ProductoDao extends JpaRepository<Producto, Long> {
     + " CONCAT(p.idProducto, p.nombreProducto, p.marca.nombreMarca, p.categoria.nombreCategoria, p.unidadesExistentes)"
     + " LIKE %?1%")
     public List<Producto> filtrarProductos(String palabraClave);
+
+    @Query("SELECT p FROM Producto p WHERE p.idProducto = :palabraClave")
+    public Producto unProducto(Long palabraClave);
 }
