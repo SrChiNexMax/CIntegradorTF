@@ -12,10 +12,10 @@
 </head>
 
 <body class="fondoB">
-    <form hidden id="add" method="post" th:object="" th:action="" >
+    <form hidden id="add" method="post">
     	<input type="hidden" name="idCliente" id="idCliente">
     </form>
-    <form hidden id="delete" method="get" th:object="" th:action="" >
+    <form hidden id="delete" method="get" >
     	<input type="hidden" name="idCliente" id="idCliente">
     </form>
     <center>
@@ -71,18 +71,18 @@
         </div>
         <form  id="buscador" th:action="@{/nuevaVentas}">
         </form>
-        <input required="" placeholder="Name" class="form__field" type="text" id="idProducto" name="idProducto">
+        <input required="" placeholder="Name" class="form__field" hidden type="text" id="idProducto" name="idProducto">
         <hr>
         <div style="margin-top: 15px;" class="contenedor_apartado">
             <div class="area_trabajo">
                 <div class="formulario_datos_apartado">
                     <div class="datos_apartado">
                         <div class="form__group field">
-                            <input required="" form="buscador" placeholder="Name" class="form__field" type="text" id="idPro" name="idPro" th:value="${idPro}">
+                            <input required="" form="buscador" oninput="obtenerDato()" placeholder="Name" class="form__field" type="text" id="idPro" name="idPro" th:value="${idPro}">
                             <label class="form__label" for="name">Codigo</label>
                         </div>
                         <div class="bton_accion">
-                            <button type="submit" onclick="obtenerDato()" form="buscador">O</button>
+                            <button type="submit" form="buscador">O</button>
                         </div>
                     </div>
                     <div class="datos_apartado">
