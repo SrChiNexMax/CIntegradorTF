@@ -679,6 +679,28 @@ h2{
     opacity:1;
     pointer-events:auto;
 }
+/* Ventana de nueva venta */
+#IrVentanaNuevo:target{
+    opacity:1;
+    pointer-events:auto;
+}
+.ventana2{
+    background-image: url(../img/SLFondo.png);
+    width:1400px;
+    padding: 10px 20px;
+    margin: 20% auto;
+    position: relative;
+    color: #f8f8f8;
+    border-radius: 20px;
+}
+.area_trabajo2{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 20px;
+    height: auto;
+    /* background-color: #ffb641; */
+}
+/* Fin de ventana de nueva venta */
 /* Fin Diseño ventanaFlotante */
 
 /* FIN DE APARTADO */

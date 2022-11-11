@@ -38,4 +38,13 @@ public class ProductoServiceImpl implements ProductoService{
         return productoDao.findById(producto.getIdProducto()).orElse(null);
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public Producto encontrarUnProducto(Long palabraClave) {
+        if(palabraClave != null){
+            return productoDao.unProducto(palabraClave);
+        }
+        return productoDao.unProducto(Long.parseLong("1"));
+    }
+
 }

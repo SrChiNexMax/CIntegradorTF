@@ -14,4 +14,6 @@ public interface ClienteService {
 
     public Cliente encontrarCliente(Cliente cliente);
 
+    public Cliente encontrarUnCliente(Integer palabraClave);
+
 }

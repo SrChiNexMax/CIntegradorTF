@@ -13,4 +13,7 @@ public interface ClienteDao extends JpaRepository<Cliente, Long> {
     + " CONCAT(c.idCliente, c.dniRuc, c.nombre, c.telefono, c.direccion)"
     + " LIKE %?1%")
     public List<Cliente> filtrarClientes(String palabraClave);
+
+    @Query("SELECT c FROM Cliente c WHERE c.dniRuc= :palabraClave")
+    public Cliente unCliente(Integer palabraClave);
 }

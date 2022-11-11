@@ -43,4 +43,13 @@ public class ClienteServiceImpl implements ClienteService{
         return clienteDao.findById(cliente.getIdCliente()).orElse(null);
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public Cliente encontrarUnCliente(Integer palabraClave) {
+        if(palabraClave !=null){
+            return clienteDao.unCliente(palabraClave);
+        }
+        return clienteDao.unCliente(1);
+    }
+
 }

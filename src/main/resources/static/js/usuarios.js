@@ -19,11 +19,12 @@
 	button.setAttribute("onClick", "removeData('"+rowId+"')")
 	button.innerHTML = "Deseleccionar"
 
+	var codigo2Input = document.getElementById("idEmpleadoSus")
+	codigo2Input.value = codigo
+
 	console.log(codigo)
 	console.log(nombre)
 	console.log(acceso)
-	var codigo2Input = document.getElementById("idEmpleadoSus")
-	codigo2Input.value = codigo
 }
 
 function removeData(id) {
