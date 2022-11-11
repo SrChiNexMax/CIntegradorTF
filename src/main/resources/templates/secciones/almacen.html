@@ -72,7 +72,7 @@
                                 <tr style="color: black;" th:each="marca: ${marcas}" th:id="'m' + ${marca.idMarca}">
                                     <td th:text="${marca.idMarca}"></td>
                                     <td	th:text="${marca.nombreMarca}"></td>
-                                    <td ><button th:onclick="|getDataMarca('m${marca.idMarca}')|">Seleccionar</button></td>
+                                    <td ><button th:id="'buttonM' + ${marca.idMarca}" th:onclick="|getDataMarca('m${marca.idMarca}')|">Seleccionar</button></td>
                                 </tr>
                             <tbody>
                         </table>
@@ -81,7 +81,7 @@
             </div>
             <div class="espacio_botones_apartado">
                 <div class="botones_apartado">
-                    <button type="submit" form="addMarca" class="menubtn2 mbtn">Nuevo</button>
+                    <button type="submit" form="addMarca" id="addMarcaB" class="menubtn2 mbtn">Nuevo</button>
                 </div>
                 <div class="botones_apartado">
                     <button type="submit" form="addMarca" class="menubtn2 mbtn">Modificar</button>
@@ -126,7 +126,7 @@
                                 <tr style="color: black;" th:each="categoria: ${categorias}" th:id="'c' + ${categoria.idCategoria}">
                                     <td th:text="${categoria.idCategoria}"></td>
                                     <td	th:text="${categoria.nombreCategoria}"></td>
-                                    <td ><button th:onclick="|getDataCategoria('c${categoria.idCategoria}')|">Seleccionar</button></td>
+                                    <td ><button th:id="'buttonC' + ${categoria.idCategoria}" th:onclick="|getDataCategoria('c${categoria.idCategoria}')|">Seleccionar</button></td>
                                 </tr>
                             <tbody>
                         </table>
@@ -135,7 +135,7 @@
             </div>
             <div class="espacio_botones_apartado">
                 <div class="botones_apartado">
-                    <button type="submit" form="addCategoria" class="menubtn2 mbtn">Nuevo</button>
+                    <button id="addCategoriaB" type="submit" form="addCategoria" class="menubtn2 mbtn">Nuevo</button>
                 </div>
                 <div class="botones_apartado">
                     <button type="submit" form="addCategoria" class="menubtn2 mbtn">Modificar</button>
@@ -233,7 +233,7 @@
                                 <td th:text="${producto.categoria.nombreCategoria}"></td>
                                 <td	th:text="${producto.unidadesExistentes}"></td>
                                 <td	th:text="${producto.estaSuspendido} ? 'Sí' : 'No' "></td>
-	                            <td ><button th:onclick="|getDataProducto('p${producto.idProducto}')|">Seleccionar</button></td>
+	                            <td ><button th:id="'buttonP' + ${producto.idProducto}" th:onclick="|getDataProducto('p${producto.idProducto}')|">Seleccionar</button></td>
 	                        </tr>
                         <tbody>
                     </table>
@@ -242,7 +242,7 @@
         </div>
         <div class="espacio_botones_apartado">
             <div class="botones_apartado">
-                <button type="submit" form="addProducto" class="menubtn2 mbtn">Nuevo</button>
+                <button id="addProductoB" type="submit" form="addProducto" class="menubtn2 mbtn">Nuevo</button>
             </div>
             <div class="botones_apartado">
                 <button type="submit" form="addProducto" class="menubtn2 mbtn">Modificar</button>
