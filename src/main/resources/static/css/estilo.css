@@ -352,14 +352,14 @@
 .area_trabajo{
     display: grid;
     grid-template-rows: auto 1fr;
-    gap: 20px;
+    
     height: 74vh;
     /* background-color: #ffb641; */
 }
 .formulario_datos_apartado{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 40px;
+    gap: 20px;
     /* background-color: #116399; */
 }
 .datos_apartado{
