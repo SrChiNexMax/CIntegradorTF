@@ -352,7 +352,7 @@
 .area_trabajo{
     display: grid;
     grid-template-rows: auto 1fr;
-    
+    gaP: 20px;
     height: 74vh;
     /* background-color: #ffb641; */
 }
