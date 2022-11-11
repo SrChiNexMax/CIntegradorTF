@@ -19,7 +19,7 @@ public class ItemVentaController {
     public ProductoService productoService;
 
     @GetMapping("/nuevaVentas")
-    public String nuevaVentasMainPage(Model model,@Param("dniRuc") Integer dniRuc,@Param("idPro") Long idPro){
+    public String nuevaVentasMainPage(Model model,@Param("dniRuc") Integer dniRuc,@Param("idPro") Long idPro, @Param("idProducto") Long idProducto){
 
         model.addAttribute("dniRuc", dniRuc);
         var clientes = clienteService.encontrarUnCliente(dniRuc);
@@ -29,6 +29,9 @@ public class ItemVentaController {
         var productos = productoService.encontrarUnProducto(idPro);
         model.addAttribute("productos", productos);
 
+        idProducto=idPro;
+        model.addAttribute("idProducto", idProducto);
+        
         return "secciones/nuevaVentas";
     }
 }

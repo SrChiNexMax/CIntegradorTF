@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,11 +30,11 @@ public class Ventas implements Serializable {
 	@Column(length = 100)
 	private String tipoComprobante;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(nullable = false, name = "idCliente", referencedColumnName = "idCliente")
 	private Cliente cliente;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(nullable = false, name = "idEmpleado", referencedColumnName = "idEmpleado")
 	private Empleado empleado;
 	
