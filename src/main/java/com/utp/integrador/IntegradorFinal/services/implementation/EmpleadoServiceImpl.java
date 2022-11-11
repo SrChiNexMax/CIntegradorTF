@@ -64,7 +64,6 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 		return empleadoDao.save(emp);
 	}
 	
-
 	@Override
 	@Transactional
 	public Empleado registrarNuevoUsuario(Empleado empleado){
