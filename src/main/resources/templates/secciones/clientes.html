@@ -90,7 +90,7 @@
                                     <td	th:text="${cliente.nombre}"></td>
                                     <td	th:text="${cliente.telefono}"></td>
                                     <td	th:text="${cliente.direccion}"></td>
-                                    <td ><button th:onclick="|getData('row${cliente.idCliente}')|">Seleccionar</button></td>
+                                    <td ><button th:id="'button' + ${cliente.idCliente}" th:onclick="|getData('row${cliente.idCliente}')|">Seleccionar</button></td>
                                 </tr>
                             <tbody>
                         </table>
@@ -99,7 +99,7 @@
             </div>
             <div class="espacio_botones_apartado">
                 <div class="botones_apartado">
-                    <button type="submit" class="menubtn2 mbtn" form="add">Nuevo</button>
+                    <button id="addClienteB" type="submit" class="menubtn2 mbtn" form="add">Nuevo</button>
                 </div>
                 <div class="botones_apartado">
                     <button type="submit" form="add" class="menubtn2 mbtn">Modificar</button>
