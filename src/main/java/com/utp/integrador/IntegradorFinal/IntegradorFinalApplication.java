@@ -10,6 +10,7 @@ public class IntegradorFinalApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(IntegradorFinalApplication.class, args);
+		
 	}
 
 }
