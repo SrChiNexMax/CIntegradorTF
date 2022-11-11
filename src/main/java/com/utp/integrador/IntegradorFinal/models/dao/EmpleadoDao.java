@@ -18,6 +18,10 @@ public interface EmpleadoDao extends JpaRepository<Empleado, Long> {
 	public Empleado findByDni(String dni);
 
 	@Modifying
+	@Query("UPDATE Empleado e SET e.estado = :estado WHERE e.idEmpleado = :idEmpleado")
+	void suspenderEmpleado(@Param(value = "idEmpleado") long idEmpleado, @Param(value = "estado") String estado);
+
+	@Modifying
 	@Query("UPDATE Empleado e SET e.nombre = :nombre, e.clave = :clave, e.acceso = :acceso WHERE e.idEmpleado = :idEmpleado")
 	void modificarUsuario(@Param(value = "idEmpleado") long idEmpleado, @Param(value = "nombre") String nombre, 
 	@Param(value = "clave") String clave, @Param(value = "acceso") String acceso);

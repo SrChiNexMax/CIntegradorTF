@@ -95,4 +95,10 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 		empleadoDao.modificarUsuario(empleado.getIdEmpleado(), empleado.getNombre(), empleado.getClave(), empleado.getAcceso());
 	}
 
+	@Override
+	@Transactional
+	public void suspenderEmpleado(Long idEmpleado, String estado){
+		empleadoDao.suspenderEmpleado(idEmpleado, estado);
+	}
+
 }

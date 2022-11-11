@@ -22,4 +22,6 @@ public interface EmpleadoService {
 
     public void modificarEmpleado(Empleado empleado);
 
+    public void suspenderEmpleado(Long idEmpleado, String estado);
+
 }

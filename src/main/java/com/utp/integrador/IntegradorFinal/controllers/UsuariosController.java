@@ -1,6 +1,7 @@
 package com.utp.integrador.IntegradorFinal.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,6 +38,16 @@ public class UsuariosController {
 		}
 
 		empleadoService.registrarNuevoUsuario(empleado);
+		return "redirect:/usuarios";
+	}
+
+	@PostMapping("/suspenderUsuario")
+	public String suspender(@Param("idEmpleadoSus") Long idEmpleadoSus){
+
+		String estado= "Suspendido";
+
+		empleadoService.suspenderEmpleado(idEmpleadoSus, estado);
+
 		return "redirect:/usuarios";
 	}
 	

@@ -100,13 +100,15 @@
                 <a style="text-decoration: none;" th:href="@{/empleados}"><button class="menubtn2 mbtn">Detalles</button></a>
             </div>
             <div class="botones_apartado">
-                <button form="delete" class="menubtn2 mbtn">Eliminar/Suspender</button>
+                <button type="submit" form="suspender" class="menubtn2 mbtn">Suspender</button></a>
             </div>
             <div class="botones_apartado">
                 <a style="text-decoration: none;" th:href="@{usuarios/(format=xlsx)}"><button class="menubtn2 mbtn">Reporte de usuarios</button></a>
             </div>
         </div>
     </div>
-    
+    <form  id="suspender" method="post" th:action="@{/suspenderUsuario}" >
+    	<input type="hidden" name="idEmpleadoSus" id="idEmpleadoSus" th:value="${idEmpleadoSus}" required>
+    </form>
 </body>
 </html>
