@@ -343,8 +343,6 @@
     width: 90%;
     max-width: 2000px;
     margin: auto;
-    padding: 20px;
-    margin-top: 5vh;
 
     display: grid;
     grid-template-columns: 4fr 1fr;
@@ -355,7 +353,7 @@
     display: grid;
     grid-template-rows: auto 1fr;
     gap: 20px;
-    height: 90vh;
+    height: 74vh;
     /* background-color: #ffb641; */
 }
 .formulario_datos_apartado{
