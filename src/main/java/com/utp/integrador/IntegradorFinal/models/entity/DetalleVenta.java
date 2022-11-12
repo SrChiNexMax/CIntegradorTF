@@ -3,8 +3,10 @@ package com.utp.integrador.IntegradorFinal.models.entity;
 import java.io.Serializable;
 import java.math.BigInteger;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,11 +28,11 @@ public class DetalleVenta implements Serializable {
 	private Long idDetalles;
 	
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@JoinColumn(nullable = false, name = "idProducto", referencedColumnName = "idProducto")
 	private Producto producto;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@JoinColumn(nullable = false, name = "idComprobante", referencedColumnName = "idComprobante")
 	private Ventas ventas;
 	
