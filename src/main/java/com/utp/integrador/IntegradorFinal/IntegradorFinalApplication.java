@@ -9,8 +9,6 @@ import org.springframework.context.annotation.PropertySource;
 public class IntegradorFinalApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(IntegradorFinalApplication.class, args);
-		
+		SpringApplication.run(IntegradorFinalApplication.class, args);	
 	}
-
 }

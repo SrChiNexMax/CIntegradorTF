@@ -91,7 +91,7 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 	@Override
 	@Transactional
 	public void modificarUsuario(Empleado empleado){
-		empleadoDao.modificarUsuario(empleado.getIdEmpleado(), empleado.getNombre(), empleado.getClave(), empleado.getAcceso());
+		empleadoDao.modificarUsuario(empleado.getIdEmpleado(), empleado.getNombre(), passwordEncoder.encode(empleado.getClave()), empleado.getAcceso());
 	}
 
 	@Override
