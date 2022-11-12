@@ -49,5 +49,9 @@ public class Producto implements Serializable {
 	private int unidadesEnPedido;
 	
 	private boolean estaSuspendido;
-	
+
+	public BigDecimal getPrecioUnidad() {
+		return precioUnidad;
+	}
+
 }
