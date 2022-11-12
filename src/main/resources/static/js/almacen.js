@@ -92,7 +92,7 @@ function getDataProducto(pId) {
 	var codigoInput = document.getElementById("idProducto")
 	var nombreProductoInput = document.getElementById("nombreProducto")
 	var precioUnidadInput = document.getElementById("precioUnidad")
-    var marcaInput = document.getElementById("marca")
+    var marcaSelected = document.getElementById("marca")
     var categoriaInput = document.getElementById("categoria")
     var unidadesExistentesInput = document.getElementById("unidadesExistentes")
     var estaSuspendidoInput = document.getElementById("estaSuspendido")
@@ -100,7 +100,7 @@ function getDataProducto(pId) {
 	codigoInput.value = codigo
 	nombreProductoInput.value = nombreProducto
 	precioUnidadInput.value = precioUnidad
-    marcaInput.value = marca
+    marcaSelected.value = marca
     categoriaInput.value = categoria
     unidadesExistentesInput.value = unidadesExistentes
     estaSuspendidoInput.value = estaSuspendido
@@ -118,10 +118,6 @@ function getDataProducto(pId) {
 	console.log(categoria)
     console.log(unidadesExistentes)
     console.log(estaSuspendido)
-}
-
-function encontrarM(marca){
-
 }
 
 function removeDataP(id) {
