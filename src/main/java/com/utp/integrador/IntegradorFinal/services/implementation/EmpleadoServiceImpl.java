@@ -100,4 +100,10 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 		empleadoDao.suspenderEmpleado(idEmpleado, estado);
 	}
 
+	@Override
+	@Transactional(readOnly= true)
+	public Empleado encontrarUnEmpleado(String dni){
+		return empleadoDao.findByDni(dni);
+	}
+
 }

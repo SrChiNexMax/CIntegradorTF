@@ -16,4 +16,6 @@ public interface ClienteService {
 
     public Cliente encontrarUnCliente(Integer palabraClave);
 
+    public Cliente encontrarClientePorId(Long id);
+
 }

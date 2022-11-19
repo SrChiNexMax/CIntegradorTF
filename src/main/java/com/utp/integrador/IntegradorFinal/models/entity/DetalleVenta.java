@@ -28,11 +28,11 @@ public class DetalleVenta implements Serializable {
 	private Long idDetalles;
 	
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(nullable = false, name = "idProducto", referencedColumnName = "idProducto")
 	private Producto producto;
 	
-	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(nullable = false, name = "idComprobante", referencedColumnName = "idComprobante")
 	private Ventas ventas;
 	

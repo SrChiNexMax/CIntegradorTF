@@ -51,5 +51,9 @@ public class ClienteServiceImpl implements ClienteService{
         }
         return clienteDao.unCliente(1);
     }
+    @Override
+    public Cliente encontrarClientePorId(Long id) {
+        return clienteDao.findById(id).orElseThrow();
+    }
 
 }

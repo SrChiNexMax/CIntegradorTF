@@ -28,11 +28,14 @@
                     </button>
                 </a>
                 <div class="menuuser">
-                    <p>Usuario</p>
+                    <p sec:authentication="name">Usuario</p>
                 </div>
             </div>
         </div>
     </div>   
+
+    <form hidden id="add" method="post" th:action="@{/nuevaVenta}" >
+    </form>
 
     <div class="contenedor_apartado">
         <div class="area_trabajo" style="gap: 0px;">
@@ -78,16 +81,20 @@
                             <th>Usuario</th>
                             <th>Fecha</th>
                             <th>Total</th>
+                            <th style="width:100px"></th>
+                            <th style="width:100px"></th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>Content 1</td>
-                            <td>Content 1</td>
-                            <td>Content 1</td>
-                            <td>Content 1</td>
-                            <td>Content 1</td>
-                            <td>Content 1</td>
+                        <tr th:each="venta: ${ventas}" th:id="'row' + ${venta.idComprobante}">
+                            <td th:text="${venta.idComprobante}"></td>
+                            <td th:text="${venta.tipoComprobante}"></td>
+                            <td th:text="${venta.cliente.nombre}"></td>
+                            <td th:text="${venta.empleado.nombre}"></td>
+                            <td th:text="${venta.fechaVenta}"></td>
+                            <td th:text="${venta.importe}"></td>
+                            <td ><a th:href="@{'/darVenta/'+ ${venta.idComprobante}}"><button>Editar</button></a></td>
+                            <td ><a th:href="@{'/eliminarVenta/'+ ${venta.idComprobante}}"><button>Eliminar</button></a></td>
                         </tr>
                         <tbody>
                     </table>
@@ -110,13 +117,7 @@
         </div>
         <div class="espacio_botones_apartado">
             <div class="botones_apartado">
-                <a style="text-decoration: none;" th:href="@{/nuevaVentas}"><button class="menubtn2 mbtn">Nuevo</button></a>
-            </div>
-            <div class="botones_apartado">
-                <a href=""><button class="menubtn2 mbtn">Modificar</button></a>
-            </div>
-            <div class="botones_apartado">
-                <a href=""><button class="menubtn2 mbtn">Eliminar</button></a>
+                <button type="submit" form="add" class="menubtn2 mbtn">Nuevo</button>
             </div>
             <div class="botones_apartado">
                 <a href=""><button class="menubtn2 mbtn">Facturar</button></a>

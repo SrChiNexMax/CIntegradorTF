@@ -24,4 +24,6 @@ public interface EmpleadoService {
 
     public void suspenderEmpleado(Long idEmpleado, String estado);
 
+    public Empleado encontrarUnEmpleado(String dni);
+
 }

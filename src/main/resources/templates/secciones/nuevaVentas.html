@@ -12,9 +12,6 @@
 </head>
 
 <body class="fondoB">
-    <form hidden id="add" method="post">
-    	<input type="hidden" name="idCliente" id="idCliente">
-    </form>
     <form hidden id="delete" method="get" >
     	<input type="hidden" name="idCliente" id="idCliente">
     </form>
@@ -42,8 +39,7 @@
                 </div>
             </div>
         </div>
-        <form hidden id="" method="post">
-            <input type="hidden" name="" id="">
+        <form hidden id="add" method="post" th:action="@{'/agregarItem/'+ ${venta.idComprobante}+'/'+${idProducto}}">
         </form>
 
         <div class="formulario_datos_apartado" style="margin-left: 5%; margin-bottom: 2%;">
@@ -68,10 +64,21 @@
                     <label class="form__label" for="name">Nombre</label>
                 </div>
             </div>
+            <div class="datos_apartado">
+                <div class="form__group field">
+                    <input form="add" required="" placeholder="Name" class="form__field" disabled type="text" id="idComprobante" name="idComprobante" th:value="${venta.idComprobante}">
+                    <label class="form__label" for="name">idComprobante</label>
+                </div>
+            </div>
+            <div class="datos_apartado">
+                <div class="form__group field">
+                    <input form="add" required="" placeholder="Name" class="form__field" disabled type="text" id="idProducto" name="idProducto" th:value="${idProducto}">
+                    <label class="form__label" for="name">idProducto</label>
+                </div>
+            </div>
         </div>
-        <form  id="buscador" th:action="@{/nuevaVentas}">
+        <form  id="buscador" th:action="@{'/busqueda/'+ ${venta.idComprobante}}">
         </form>
-        <input required="" placeholder="Name" class="form__field" hidden type="text" id="idProducto" name="idProducto" th:value="${idProducto}">
         <hr>
         <div style="margin-top: 15px;" class="contenedor_apartado">
             <div class="area_trabajo">
@@ -93,7 +100,7 @@
                     </div>
                     <div class="datos_apartado">
                         <div class="form__group field">
-                            <input form="" required="" placeholder="Name" class="form__field" type="input" id="cantidad" name="cantidad">
+                            <input form="add" required="" placeholder="Name" class="form__field" type="input" id="cantidad" name="cantidad" th:value="${cantidad}">
                             <label class="form__label" for="name">Cantidad</label>
                         </div>
                     </div>
@@ -131,16 +138,19 @@
                                 <th>Cantidad</th>
                                 <th>Precio</th>
                                 <th>Stock</th>
-                                <th>Tipo Comprobante</th>
                                 <th style="width:100px"></th>
                                 <th style="width:100px"></th>
                             </tr>
                             </thead>
                             <tbody>
-                                <tr style="color: black;" th:each="marca: ${marcas}" th:id="'m' + ${marca.idMarca}">
-                                    <td th:text="${marca.idMarca}"></td>
-                                    <td	th:text="${marca.nombreMarca}"></td>
-                                    <td ><button th:onclick="|getDataMarca('m${marca.idMarca}')|">Seleccionar</button></td>
+                                <tr th:each="item: ${items}" th:id="'row' + ${item.idDetalles}">
+                                    <td th:text="${item.idDetalles}"></td>
+                                    <td	th:text="${item.producto.nombreProducto}"></td>
+                                    <td	th:text="${item.cantidad}"></td>
+                                    <td	th:text="${item.producto.precioUnidad}"></td>
+                                    <td	th:text="${item.producto.unidadesExistentes}"></td>
+                                    <td ><a><button>Editar</button></a></td>
+                                    <td ><a th:href="@{'/eliminarItem/'+ ${venta.idComprobante}+'/'+${item.idDetalles}}"><button>Eliminar</button></a></td>
                                 </tr>
                             <tbody>
                         </table>
@@ -149,7 +159,7 @@
             </div>
             <div class="espacio_botones_apartado">
                 <div class="botones_apartado">
-                    <button type="submit" form="" class="menubtn2 mbtn">Nuevo</button>
+                    <button type="submit" form="add" class="menubtn2 mbtn">Nuevo</button>
                 </div>
                 <div class="botones_apartado">
                     <button type="submit" form="" class="menubtn2 mbtn">Modificar</button>
