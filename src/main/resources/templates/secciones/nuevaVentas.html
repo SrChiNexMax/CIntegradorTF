@@ -130,7 +130,7 @@
                 </div>
                 <div class="tabla_apartado">
                     <div class="table-wrapper">
-                        <table class="fl-table">
+                        <table id="tablaDetalle" class="fl-table">
                             <thead>
                             <tr>
                                 <th>Codigo</th>
@@ -138,6 +138,7 @@
                                 <th>Cantidad</th>
                                 <th>Precio</th>
                                 <th>Stock</th>
+                                <th>Importe</th>
                                 <th style="width:100px"></th>
                                 <th style="width:100px"></th>
                             </tr>
@@ -149,6 +150,7 @@
                                     <td	th:text="${item.cantidad}"></td>
                                     <td	th:text="${item.producto.precioUnidad}"></td>
                                     <td	th:text="${item.producto.unidadesExistentes}"></td>
+                                    <td	th:text="${item.getImporte()}"></td>
                                     <td ><a><button>Editar</button></a></td>
                                     <td ><a th:href="@{'/eliminarItem/'+ ${venta.idComprobante}+'/'+${item.idDetalles}}"><button>Eliminar</button></a></td>
                                 </tr>
@@ -167,7 +169,7 @@
                 <br><br><br><br><br><br><br><br><br>
                 <div class="botones_apartado">
                     <div class="form__group field" style="width: 250px;">
-                        <input disabled type="text" name="total" class="form__field" id="total" required>
+                        <input disabled type="text" name="importe" class="form__field" id="importe">
                         <label class="form__label" for="name">Total</label>
                     </div>
                 </div>

@@ -1,5 +1,7 @@
 package com.utp.integrador.IntegradorFinal.controllers;
 
+import java.math.BigInteger;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
@@ -109,6 +111,7 @@ public class ItemVentaController {
         DetalleVenta detalleVenta= new DetalleVenta();
         detalleVenta.setVentas(venta);
         detalleVenta.setProducto(producto);
+        detalleVenta.setPrecioUnidad(producto.getPrecioUnidad());
         detalleVenta.setCantidad(cantidad);
         detalleVentaService.guardar(detalleVenta);
 

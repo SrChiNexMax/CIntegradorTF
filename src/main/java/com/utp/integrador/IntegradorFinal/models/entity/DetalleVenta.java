@@ -1,9 +1,10 @@
 package com.utp.integrador.IntegradorFinal.models.entity;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.RoundingMode;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -38,8 +39,12 @@ public class DetalleVenta implements Serializable {
 	
 	
 	@Column(precision = 12, scale=2)
-	private BigInteger precioUnidad;
+	private BigDecimal precioUnidad;
 	
 	private int cantidad;
 	
+	public BigDecimal getImporte(){
+
+		return precioUnidad.multiply(new BigDecimal(cantidad));
+	}
 }
