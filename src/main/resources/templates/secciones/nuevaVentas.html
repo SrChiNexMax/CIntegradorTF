@@ -48,34 +48,6 @@
         <form hidden id="finalizarVenta" th:action="@{'/finalizarVenta/'+ ${venta.idComprobante}}" >
         </form>
 
-        <div class="formulario_datos_apartado" style="margin-left: 5%; margin-bottom: 2%;">
-            <div class="datos_apartado">
-                <div class="form__group field">
-                    <input form="add" required="" placeholder="Name" class="form__field" disabled type="text" id="idComprobante" name="idComprobante" th:value="${venta.idComprobante}">
-                    <label class="form__label" for="name">idComprobante</label>
-                </div>
-            </div>
-            <div class="datos_apartado">
-                <div class="form__group field">
-                    <input form="" required="" placeholder="Name" class="form__field" disabled type="text" id="nombre" name="nombre" th:value="${venta.cliente.nombre}">
-                    <label class="form__label" for="name">Cliente</label>
-                </div>
-            </div>
-            <div class="datos_apartado">
-                <div class="form__group field">
-                    <input form="modificadorVenta" required="" placeholder="Name" class="form__field" type="text" id="tipoComprobante" name="tipoComprobante" th:value="${venta.tipoComprobante}">
-                    <label class="form__label" for="name">Tipo de comprobante</label>
-                </div>
-            </div>
-            <div></div>
-            <div class="datos_apartado">
-                <div class="form__group field">
-                    <input form="modificadorVenta" required="" placeholder="Name" class="form__field" type="text" id="idCliente" name="idCliente">
-                    <label class="form__label" for="name">IdCliente a modificar</label>
-                </div>
-            </div>
-        </div>
-        <hr>
         <h3 style="font-family: inherit;color: #ffffff;">Buscador de cliente</h3>
         <div class="formulario_datos_apartado" style="margin-left: 5%; margin-bottom: 2%;">
             <div class="datos_apartado">
@@ -115,6 +87,35 @@
                 <div hidden class="form__group field">
                     <input form="finalizarVenta" required="" placeholder="Name" class="form__field" type="text" id="importefinal" name="importefinal">
                     <label class="form__label" for="name">Importe final</label>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h3 style="font-family: inherit;color: #ffffff;">Informacion de la venta</h3>
+        <div class="formulario_datos_apartado" style="margin-left: 5%; margin-bottom: 2%;">
+            <div class="datos_apartado">
+                <div class="form__group field">
+                    <input form="add" required="" placeholder="Name" class="form__field" disabled type="text" id="idComprobante" name="idComprobante" th:value="${venta.idComprobante}">
+                    <label class="form__label" for="name">idComprobante</label>
+                </div>
+            </div>
+            <div class="datos_apartado">
+                <div class="form__group field">
+                    <input form="" required="" placeholder="Name" class="form__field" disabled type="text" id="nombre" name="nombre" th:value="${venta.cliente.nombre}">
+                    <label class="form__label" for="name">Cliente</label>
+                </div>
+            </div>
+            <div class="datos_apartado">
+                <div class="form__group field">
+                    <input form="modificadorVenta" placeholder="Name" class="form__field" disabled type="text" id="tipoComprobante" name="tipoComprobante" th:value="${venta.tipoComprobante}">
+                    <label class="form__label" for="name">Tipo de comprobante</label>
+                </div>
+            </div>
+            <div></div>
+            <div class="datos_apartado">
+                <div class="form__group field">
+                    <input form="modificadorVenta" required="" placeholder="Name" class="form__field" type="text" id="idCliente" name="idCliente">
+                    <label class="form__label" for="name">IdCliente a modificar</label>
                 </div>
             </div>
         </div>

@@ -1,7 +1,6 @@
 package com.utp.integrador.IntegradorFinal.controllers;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -342,7 +341,8 @@ public class ItemVentaController {
     public String finalizarVenta(@PathVariable(name = "id") Long id, @Param("dniRuc") Integer dniRuc,
             @Param("idPro") Long idPro, @Param("idProducto") Long idProducto, @Param("cantidad") Integer cantidad,
             RedirectAttributes redirectAttributes, @Param("idCliente") Long idCliente,
-            @RequestParam(required = false, name = "importefinal") String importefinal) {
+            @RequestParam(required = false, name = "importefinal") String importefinal,
+            @RequestParam(required = false, name = "tipodeComprobante") String tipodeComprobante) {
 
         BigDecimal bd = new BigDecimal(importefinal);
         Timestamp t = new Timestamp(new Date().getTime());
