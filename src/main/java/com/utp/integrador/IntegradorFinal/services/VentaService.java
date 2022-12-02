@@ -13,4 +13,6 @@ public interface VentaService {
     public void guardar(Ventas ventas);
 
     public void eliminar(Long id);
+    
+    public List<Ventas> encontrarVentasPorFacturado();
 }

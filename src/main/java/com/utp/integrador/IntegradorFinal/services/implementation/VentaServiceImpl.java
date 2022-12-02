@@ -36,5 +36,11 @@ public class VentaServiceImpl implements VentaService{
     public Ventas encontrarVentaPorId(Long id) {
         return ventasDao.findById(id).orElseThrow();
     }
+    
+    @Transactional
+    public List<Ventas> encontrarVentasPorFacturado() {
+    	return ventasDao.findByFacturadoTrue();
+    	
+    }
 
 }

@@ -53,13 +53,13 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>Content 1</td>
-                            <td>Content 1</td>
-                            <td>Content 1</td>
-                            <td>Content 1</td>
-                            <td>Content 1</td>
-                            <td>Content 1</td>
+                        <tr th:each="venta: ${ventas}" th:id="'row' + ${venta.idComprobante}">
+                            <td th:text="${venta.idComprobante}"></td>
+                            <td th:text="${venta.tipoComprobante}"></td>
+                            <td th:text="${venta.cliente.nombre}"></td>
+                            <td th:text="${venta.empleado.nombre}"></td>
+                            <td th:text="${venta.fechaVenta}"></td>
+                            <td th:text="${venta.importe}"></td>
                         </tr>
                         <tbody>
                     </table>

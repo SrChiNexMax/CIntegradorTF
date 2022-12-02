@@ -7,6 +7,7 @@
 .fondoB {
     background-image: url(../img/SLFondo.png);
     background-size: 100%;
+    margin: 0;
 }
 
 .dv{

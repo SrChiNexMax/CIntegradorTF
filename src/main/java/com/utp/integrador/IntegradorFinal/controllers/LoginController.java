@@ -29,6 +29,25 @@ public class LoginController {
 	}
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@GetMapping("/agregar")
     public String agregar(Persona persona){
         return "modificar";
