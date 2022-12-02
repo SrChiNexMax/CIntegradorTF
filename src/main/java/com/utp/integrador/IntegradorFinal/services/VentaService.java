@@ -10,7 +10,7 @@ import com.utp.integrador.IntegradorFinal.models.entity.Ventas;
 
 public interface VentaService {
 
-    public List<Ventas> listarVentas();
+    public List<Ventas> listarVentasNoFacturadas();
 
     public Ventas encontrarVentaPorId(Long id);
 

@@ -34,7 +34,7 @@ public class VentaController {
 	@GetMapping("/ventas")
 	public String ventasMainPage(Model model) {
 		
-		var ventas= ventaService.listarVentas();
+		var ventas= ventaService.listarVentasNoFacturadas();
 		model.addAttribute("ventas", ventas);
 
 		return "secciones/ventas";

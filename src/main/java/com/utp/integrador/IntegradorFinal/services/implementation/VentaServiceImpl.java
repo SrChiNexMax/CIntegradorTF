@@ -21,8 +21,8 @@ public class VentaServiceImpl implements VentaService{
     private VentasDao ventasDao;
 
     @Override
-    public List<Ventas> listarVentas() {
-        return (List<Ventas>) ventasDao.findAll();
+    public List<Ventas> listarVentasNoFacturadas() {
+        return ventasDao.findByFacturadoFalse();
     }
 
     @Override
