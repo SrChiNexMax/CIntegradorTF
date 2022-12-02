@@ -47,4 +47,10 @@ public class ProductoServiceImpl implements ProductoService{
         return productoDao.unProducto(Long.parseLong("1"));
     }
 
+    @Override
+    @Transactional
+    public void modificarStock(Long idProducto, Integer stock){
+        productoDao.modificarStock(idProducto, stock);
+    }
+
 }

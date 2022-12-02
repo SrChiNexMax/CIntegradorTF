@@ -11,4 +11,6 @@ public interface DetalleVentaService {
     public void guardar(DetalleVenta detalleVenta);
 
     public void eliminar(Long id);
+
+    public DetalleVenta encontrarUnDetalleVenta(Long idDetalles);
 }

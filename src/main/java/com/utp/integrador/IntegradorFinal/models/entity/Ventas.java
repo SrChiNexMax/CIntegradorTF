@@ -1,6 +1,7 @@
 package com.utp.integrador.IntegradorFinal.models.entity;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.sql.Timestamp;
 import java.util.List;
@@ -35,18 +36,18 @@ public class Ventas implements Serializable {
 	@Column(length = 100)
 	private String tipoComprobante;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(nullable = false, name = "idCliente", referencedColumnName = "idCliente")
 	private Cliente cliente;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(nullable = false, name = "idEmpleado", referencedColumnName = "idEmpleado")
 	private Empleado empleado;
 	
 	private Timestamp fechaVenta;
 	
 	@Column(precision = 12, scale=2)
-	private BigInteger importe;
+	private BigDecimal importe;
 	
 	private boolean suspendido;
 	

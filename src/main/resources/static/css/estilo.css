@@ -704,4 +704,12 @@ h2{
 /* Fin de ventana de nueva venta */
 /* Fin Diseño ventanaFlotante */
 
+.area_edicion{
+    display: grid;
+    grid-template-rows: auto auto;
+    gaP: 40px;
+    margin: 4em;
+    /* background-color: #ffb641; */
+}
+
 /* FIN DE APARTADO */

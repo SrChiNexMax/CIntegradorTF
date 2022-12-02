@@ -2,6 +2,8 @@ package com.utp.integrador.IntegradorFinal.services.implementation;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,12 @@ public class DetalleVentaServiceImpl implements DetalleVentaService {
     @Override
     public void eliminar(Long id) {
         detalleVentaDao.deleteById(id);
+    }
+
+    @Override
+    @Transactional
+    public DetalleVenta encontrarUnDetalleVenta(Long idDetalles){
+        return detalleVentaDao.findById(idDetalles).orElse(null);
     }
 
 }

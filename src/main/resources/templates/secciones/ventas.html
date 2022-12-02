@@ -91,7 +91,7 @@
                             <td th:text="${venta.tipoComprobante}"></td>
                             <td th:text="${venta.cliente.nombre}"></td>
                             <td th:text="${venta.empleado.nombre}"></td>
-                            <td th:text="${venta.fechaVenta}"></td>
+                            <td th:text="${#dates.format(venta.fechaVenta, 'dd-MM-yyyy HH:mm')}"></td>
                             <td th:text="${venta.importe}"></td>
                             <td ><a th:href="@{'/darVenta/'+ ${venta.idComprobante}}"><button>Editar</button></a></td>
                             <td ><a th:href="@{'/eliminarVenta/'+ ${venta.idComprobante}}"><button>Eliminar</button></a></td>

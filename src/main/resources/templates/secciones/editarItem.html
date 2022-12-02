@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Editar Item</title>
+    <link rel="stylesheet" th:href="@{/css/estilo.css}">
+</head>
+
+<body class="fondoB">
+    <center>
+        <form hidden id="add" method="post" th:action="@{'/aceptarEdit/'+ ${ven.idComprobante}+'/'+${id2}}">
+        </form>
+        <div class="area_edicion">
+            <div>
+                <div class="datos_apartado">
+                    <div class="form__group field">
+                        <input form="" required="" placeholder="Name" class="form__field" disabled type="input" id="nombreProducto" name="nombreProducto" th:value="${productos.nombreProducto}">
+                        <label class="form__label" for="name">Producto</label>
+                    </div>
+                </div>
+                <div class="datos_apartado">
+                    <div class="form__group field">
+                        <input form="add" required="" placeholder="Name" class="form__field" type="input" id="cant" name="cant" th:value="${cant}">
+                        <label class="form__label" for="name">Cantidad</label>
+                    </div>
+                </div>
+                <div class="datos_apartado">
+                    <div class="form__group field">
+                        <input form="" required="" placeholder="Name" class="form__field" disabled type="input" id="precioUnidad" name="precioUnidad" th:value="${productos.precioUnidad}">
+                        <label class="form__label" for="name">Precio</label>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="datos_apartado">
+                    <a style="text-decoration: none;" th:href="@{'/cancelarEdit/'+ ${ven.idComprobante}+'/'+${id2}}"><button class="menubtn2 mbtn">Cancelar</button></a>
+                    <button type="submit" form="add" class="menubtn2 mbtn">Modificar</button>
+                </div>
+            </div>
+        </div>
+    </center>
+</body>
+
+</html>

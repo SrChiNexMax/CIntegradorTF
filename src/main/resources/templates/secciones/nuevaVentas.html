@@ -41,29 +41,14 @@
         </div>
         <form hidden id="add" method="post" th:action="@{'/agregarItem/'+ ${venta.idComprobante}+'/'+${idProducto}}">
         </form>
+        <form  id="buscador" th:action="@{'/busqueda/'+ ${venta.idComprobante}}">
+        </form>
+        <form hidden id="modificadorVenta" th:action="@{'/modificarVenta/'+ ${venta.idComprobante}}" >
+        </form>
+        <form hidden id="finalizarVenta" th:action="@{'/finalizarVenta/'+ ${venta.idComprobante}}" >
+        </form>
 
         <div class="formulario_datos_apartado" style="margin-left: 5%; margin-bottom: 2%;">
-            <div class="datos_apartado">
-                <div class="form__group field">
-                    <input form="" required="" placeholder="Name" class="form__field" disabled type="text" id="idCliente" name="idCliente" th:value="${clientes.idCliente}">
-                    <label class="form__label" for="name">Id</label>
-                </div>
-            </div>
-            <div class="datos_apartado">
-                <div class="form__group field">
-                    <input required="" form="buscador" placeholder="Name" class="form__field" type="text" id="dniRuc" name="dniRuc" th:value="${dniRuc}">
-                    <label class="form__label" for="name">DNI</label>
-                </div>
-                <div class="bton_accion">
-                    <button type="submit" form="buscador">O</button>
-                </div>
-            </div>
-            <div class="datos_apartado">
-                <div class="form__group field">
-                    <input form="" required="" placeholder="Name" class="form__field" disabled type="text" id="nombre" name="nombre" th:value="${clientes.nombre}">
-                    <label class="form__label" for="name">Nombre</label>
-                </div>
-            </div>
             <div class="datos_apartado">
                 <div class="form__group field">
                     <input form="add" required="" placeholder="Name" class="form__field" disabled type="text" id="idComprobante" name="idComprobante" th:value="${venta.idComprobante}">
@@ -72,20 +57,74 @@
             </div>
             <div class="datos_apartado">
                 <div class="form__group field">
+                    <input form="" required="" placeholder="Name" class="form__field" disabled type="text" id="nombre" name="nombre" th:value="${venta.cliente.nombre}">
+                    <label class="form__label" for="name">Cliente</label>
+                </div>
+            </div>
+            <div class="datos_apartado">
+                <div class="form__group field">
+                    <input form="modificadorVenta" required="" placeholder="Name" class="form__field" type="text" id="tipoComprobante" name="tipoComprobante" th:value="${venta.tipoComprobante}">
+                    <label class="form__label" for="name">Tipo de comprobante</label>
+                </div>
+            </div>
+            <div></div>
+            <div class="datos_apartado">
+                <div class="form__group field">
+                    <input form="modificadorVenta" required="" placeholder="Name" class="form__field" type="text" id="idCliente" name="idCliente">
+                    <label class="form__label" for="name">IdCliente a modificar</label>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h3 style="font-family: inherit;color: #ffffff;">Buscador de cliente</h3>
+        <div class="formulario_datos_apartado" style="margin-left: 5%; margin-bottom: 2%;">
+            <div class="datos_apartado">
+                <div class="form__group field">
+                    <input form="modificadorVenta" required="" placeholder="Name" class="form__field" disabled type="text" id="idClientef" name="idClientef" th:value="${clientes.idCliente}">
+                    <label class="form__label" for="name">Id</label>
+                </div>
+            </div>
+            <div class="datos_apartado">
+                <div class="form__group field">
+                    <input form="buscador" placeholder="Name" class="form__field" type="text" id="dniRuc" name="dniRuc" th:value="${dniRuc}">
+                    <label class="form__label" for="name">DNI</label>
+                </div>
+                <div class="bton_accion">
+                    <button type="submit" form="buscador">O</button>
+                </div>
+            </div>
+            <div class="datos_apartado">
+                <div class="form__group field">
+                    <input form="" required="" placeholder="Name" class="form__field" disabled type="text" id="cnombre" name="cnombre" th:value="${clientes.nombre}">
+                    <label class="form__label" for="name">Nombre</label>
+                </div>
+            </div>
+            <div class="datos_apartado">
+                <div hidden class="form__group field">
                     <input form="add" required="" placeholder="Name" class="form__field" disabled type="text" id="idProducto" name="idProducto" th:value="${idProducto}">
                     <label class="form__label" for="name">idProducto</label>
                 </div>
             </div>
+            <div class="datos_apartado">
+                <div hidden class="form__group field">
+                    <input form="modificadorVenta" required="" placeholder="Name" class="form__field" type="text" id="importe" name="importe">
+                    <label class="form__label" for="name">Importe guardar</label>
+                </div>
+            </div>
+            <div class="datos_apartado">
+                <div hidden class="form__group field">
+                    <input form="finalizarVenta" required="" placeholder="Name" class="form__field" type="text" id="importefinal" name="importefinal">
+                    <label class="form__label" for="name">Importe final</label>
+                </div>
+            </div>
         </div>
-        <form  id="buscador" th:action="@{'/busqueda/'+ ${venta.idComprobante}}">
-        </form>
         <hr>
         <div style="margin-top: 15px;" class="contenedor_apartado">
             <div class="area_trabajo">
                 <div class="formulario_datos_apartado">
                     <div class="datos_apartado">
                         <div class="form__group field">
-                            <input required="" form="buscador" placeholder="Name" class="form__field" type="text" id="idPro" name="idPro" th:value="${idPro}">
+                            <input form="buscador" placeholder="Name" class="form__field" type="text" id="idPro" name="idPro" th:value="${idPro}">
                             <label class="form__label" for="name">Codigo</label>
                         </div>
                         <div class="bton_accion">
@@ -121,7 +160,7 @@
                             <p>Tipo de Comprobante:</p>
                         </div>
                         <div class="content-select">
-                            <select form="addProducto" id="comprobante" name="comprobante">
+                            <select form="modificadorVenta" id="tipodeComprobante" name="tipodeComprobante">
                                 <option>Boleta</option>
                                 <option>Factura</option>
                             </select>
@@ -133,11 +172,9 @@
                         <table id="tablaDetalle" class="fl-table">
                             <thead>
                             <tr>
-                                <th>Codigo</th>
                                 <th>Descripcion</th>
                                 <th>Cantidad</th>
                                 <th>Precio</th>
-                                <th>Stock</th>
                                 <th>Importe</th>
                                 <th style="width:100px"></th>
                                 <th style="width:100px"></th>
@@ -145,13 +182,11 @@
                             </thead>
                             <tbody>
                                 <tr th:each="item: ${items}" th:id="'row' + ${item.idDetalles}">
-                                    <td th:text="${item.idDetalles}"></td>
                                     <td	th:text="${item.producto.nombreProducto}"></td>
                                     <td	th:text="${item.cantidad}"></td>
                                     <td	th:text="${item.producto.precioUnidad}"></td>
-                                    <td	th:text="${item.producto.unidadesExistentes}"></td>
                                     <td	th:text="${item.getImporte()}"></td>
-                                    <td ><a><button>Editar</button></a></td>
+                                    <td ><a th:href="@{'/editarItem/'+ ${venta.idComprobante}+'/'+${item.idDetalles}}"><button>Editar</button></a></td>
                                     <td ><a th:href="@{'/eliminarItem/'+ ${venta.idComprobante}+'/'+${item.idDetalles}}"><button>Eliminar</button></a></td>
                                 </tr>
                             <tbody>
@@ -164,17 +199,17 @@
                     <button type="submit" form="add" class="menubtn2 mbtn">Nuevo</button>
                 </div>
                 <div class="botones_apartado">
-                    <button type="submit" form="" class="menubtn2 mbtn">Modificar</button>
+                    <button type="submit" form="modificadorVenta" class="menubtn2 mbtn">Modificar</button>
                 </div>
                 <br><br><br><br><br><br><br><br><br>
                 <div class="botones_apartado">
                     <div class="form__group field" style="width: 250px;">
-                        <input disabled type="text" name="importe" class="form__field" id="importe">
+                        <input disabled type="text" id="importef" name="importef" class="form__field">
                         <label class="form__label" for="name">Total</label>
                     </div>
                 </div>
                 <div class="botones_apartado">
-                    <button type="submit" form="" class="menubtn2 mbtn">Finalizar</button>
+                    <button type="submit" form="finalizarVenta" class="menubtn2 mbtn">Finalizar</button>
                 </div>
             </div>
         </div>

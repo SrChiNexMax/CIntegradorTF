@@ -12,4 +12,6 @@ public interface DetalleVentaDao extends JpaRepository<DetalleVenta, Long> {
     @Query("SELECT d FROM DetalleVenta d WHERE d.ventas.idComprobante= :idComprobante")
     public List<DetalleVenta> listarDetalles(Long idComprobante);
 
+    public DetalleVenta findByidDetalles(Long idDetalles);
+
 }

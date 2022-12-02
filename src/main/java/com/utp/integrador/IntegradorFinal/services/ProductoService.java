@@ -13,4 +13,6 @@ public interface ProductoService {
     public Producto encontrarProducto(Producto producto);
 
     public Producto encontrarUnProducto(Long palabraClave);
+
+    public void modificarStock(Long idProducto, Integer stock);
 }
