@@ -38,6 +38,8 @@
     align-items: center;
     background: black;
     color: white;
+    cursor: pointer;
+   
   }
 
   .menubtn2 {
