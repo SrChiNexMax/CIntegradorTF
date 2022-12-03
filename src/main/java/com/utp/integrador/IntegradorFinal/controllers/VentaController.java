@@ -71,4 +71,13 @@ public class VentaController {
 		ventaService.eliminar(id);
 		return "redirect:/ventas";
 	}
+	
+	@PostMapping("/facturar")
+	public String facturarVenta(Long idComprobante) {
+		Ventas venta = ventaService.encontrarVentaPorId(idComprobante);
+		venta.setFacturado(true);
+		ventaService.guardar(venta);
+		
+		return "redirect:/ventas";
+	}
 }

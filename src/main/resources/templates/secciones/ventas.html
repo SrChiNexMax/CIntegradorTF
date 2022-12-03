@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>S&L Ventas</title>
 	<link rel="stylesheet" href="css/estilo.css">
+	<script type='text/javascript' src="js/ventas.js"></script>
 </head>
 
 <body class="fondoB">
@@ -34,7 +35,11 @@
         </div>
     </div>   
 
-    <form hidden id="add" method="post" th:action="@{/nuevaVenta}" >
+    <form hidden id="add" method="post" th:action="@{/nuevaVenta}">
+    </form>
+    
+    <form hidden id="facturar" method="post" th:action="@{/facturar}"> 
+    	<input type="hidden" name="idComprobante" id="idComprobante">
     </form>
 
     <div class="contenedor_apartado">
@@ -83,6 +88,7 @@
                             <th>Total</th>
                             <th style="width:100px"></th>
                             <th style="width:100px"></th>
+                            <th style="width:100px"></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -93,6 +99,7 @@
                             <td th:text="${venta.empleado.nombre}"></td>
                             <td th:text="${#dates.format(venta.fechaVenta, 'dd-MM-yyyy HH:mm')}"></td>
                             <td th:text="${venta.importe}"></td>
+                            <td ><button th:id="'button' + ${venta.idComprobante}" th:onclick="|getData('row${venta.idComprobante}')|">Seleccionar</button></td>
                             <td ><a th:href="@{'/darVenta/'+ ${venta.idComprobante}}"><button>Editar</button></a></td>
                             <td ><a th:href="@{'/eliminarVenta/'+ ${venta.idComprobante}}"><button>Eliminar</button></a></td>
                         </tr>
@@ -106,7 +113,7 @@
                 <button type="submit" form="add" class="menubtn2 mbtn">Nuevo</button>
             </div>
             <div class="botones_apartado">
-                <a href=""><button class="menubtn2 mbtn">Facturar</button></a>
+                <button id="facturarbutton" type="submit" form="facturar" class="menubtn2 mbtn">Facturar</button>
             </div>
         </div>
     </div>
