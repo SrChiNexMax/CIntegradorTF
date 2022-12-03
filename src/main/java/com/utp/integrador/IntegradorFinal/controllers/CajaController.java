@@ -7,17 +7,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
-import com.utp.integrador.IntegradorFinal.models.dao.VentasDao;
 import com.utp.integrador.IntegradorFinal.models.entity.Ventas;
+import com.utp.integrador.IntegradorFinal.services.DetalleVentaService;
 import com.utp.integrador.IntegradorFinal.services.VentaService;
+
+import lombok.var;
+
 
 @Controller
 public class CajaController {
 
 	@Autowired
 	private VentaService ventaService;
+
+	@Autowired
+	private DetalleVentaService detalleVentaService;
 	
 	@GetMapping("/caja")
 	public String cajaMainPage(Model model) {
@@ -36,7 +41,20 @@ public class CajaController {
 		
 		return "redirect:/caja";
 	}
-	
+
+	@GetMapping("/observarVenta/{id}")
+	public String observarMainPage(Model model, @PathVariable(name = "id")Long id) {
+		
+		Ventas venta = ventaService.encontrarVentaPorId(id);
+		model.addAttribute("venta", venta);
+		
+		Long idComprobante = venta.getIdComprobante();
+		var items = detalleVentaService.listarDetalleVenta(idComprobante);
+		model.addAttribute("items", items);
+		
+		return "secciones/visualizarVenta";
+	}
+
 	
 	
 	

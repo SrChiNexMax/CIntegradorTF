@@ -52,6 +52,7 @@
                             <th>Fecha</th>
                             <th>Total</th>
                             <th style="width:100px"></th>
+                            <th style="width:100px"></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -62,6 +63,7 @@
                             <td th:text="${venta.empleado.nombre}"></td>
                             <td th:text="${venta.fechaVenta}"></td>
                             <td th:text="${venta.importe}"></td>
+                            <td ><a th:href="@{'/observarVenta/'+ ${venta.idComprobante}}"><button>Revisar</button></a></td>
                             <td ><a th:href="@{'/desfacturar/'+ ${venta.idComprobante}}"><button>Desfacturar</button></a></td>
                         </tr>
                         <tbody>
@@ -70,12 +72,6 @@
             </div>
         </div>
         <div class="espacio_botones_apartado">
-            <div class="botones_apartado">
-                <a href=""><button class="menubtn2 mbtn">Revisar</button></a>
-            </div>
-            <div class="botones_apartado">
-                <a href=""><button class="menubtn2 mbtn">Eliminar</button></a>
-            </div>
             <div class="botones_apartado">
                 <a href=""><button class="menubtn2 mbtn">Liquidar</button></a>
             </div>
