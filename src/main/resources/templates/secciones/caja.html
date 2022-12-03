@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Caja</title>
 	<link rel="stylesheet" href="css/estilo.css">
+	<script type='text/javascript' src="js/caja.js"></script>
 </head>
 
 <body class="fondoB">
@@ -60,6 +61,7 @@
                             <td th:text="${venta.empleado.nombre}"></td>
                             <td th:text="${venta.fechaVenta}"></td>
                             <td th:text="${venta.importe}"></td>
+                            <td ><a th:href="@{'/desfacturar/'+ ${venta.idComprobante}}"><button>Desfacturar</button></a></td>
                         </tr>
                         <tbody>
                     </table>
