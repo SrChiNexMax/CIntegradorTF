@@ -82,7 +82,7 @@ public class VentaServiceImpl implements VentaService{
         if (optVentas.isPresent()){
             try {
                 final Ventas ventas = optVentas.get();
-                final File file = ResourceUtils.getFile("classpath:ReportePDF.jrxml");
+                final File file = ResourceUtils.getFile("classpath:ReportePDF.jasper");
                 final JasperReport report = (JasperReport) JRLoader.loadObject(file);
 
                 final HashMap<String, Object> parameters = new HashMap<>();

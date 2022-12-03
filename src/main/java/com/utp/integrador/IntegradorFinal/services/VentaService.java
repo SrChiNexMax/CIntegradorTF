@@ -25,5 +25,5 @@ public interface VentaService {
 
     public void finalizar(Long id,BigDecimal importe,Timestamp time);
 
-    public ResponseEntity<Resource> reportePDF(Long idComprobate);
+    ResponseEntity<Resource> reportePDF(Long idComprobate);
 }
