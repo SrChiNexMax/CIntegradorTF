@@ -18,4 +18,8 @@ public interface ClienteService {
 
     public Cliente encontrarClientePorId(Long id);
 
+    public boolean existeClientePorDni(Integer dni);
+
+    public boolean existeClientePorId(Long id);
+
 }

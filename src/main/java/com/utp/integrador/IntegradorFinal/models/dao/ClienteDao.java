@@ -16,4 +16,7 @@ public interface ClienteDao extends JpaRepository<Cliente, Long> {
 
     @Query("SELECT c FROM Cliente c WHERE c.dniRuc= :palabraClave")
     public Cliente unCliente(Integer palabraClave);
+
+    boolean existsByDniRuc(Integer dni);
+
 }

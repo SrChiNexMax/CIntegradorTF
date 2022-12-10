@@ -56,4 +56,16 @@ public class ClienteServiceImpl implements ClienteService{
         return clienteDao.findById(id).orElseThrow();
     }
 
+    @Override
+	@Transactional(readOnly = true)
+    public boolean existeClientePorDni(Integer dni){
+        return clienteDao.existsByDniRuc(dni);
+    }
+
+    @Override
+    @Transactional(readOnly= true)
+    public boolean existeClientePorId(Long id){
+        return clienteDao.existsById(id);
+    }
+
 }

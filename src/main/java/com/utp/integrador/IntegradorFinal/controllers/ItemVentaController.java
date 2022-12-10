@@ -88,6 +88,61 @@ public class ItemVentaController {
             @RequestParam(required = false, name = "importe") String importe,
             @RequestParam(required = false, name = "tipodeComprobante") String tipodeComprobante) {
 
+        if(!clienteService.existeClientePorDni(dniRuc)){
+            redirectAttributes.addFlashAttribute("msg", "No se encontro el cliente");
+
+            Ventas venta = ventaService.encontrarVentaPorId(id);
+            redirectAttributes.addFlashAttribute("ven", venta);
+
+            Long idComprobante = venta.getIdComprobante();
+            var items = detalleVentaService.listarDetalleVenta(idComprobante);
+            redirectAttributes.addFlashAttribute("items", items);
+
+            Cliente clientes = clienteService.encontrarUnCliente(1);
+            redirectAttributes.addFlashAttribute("clientes", clientes);
+            redirectAttributes.addFlashAttribute("dniRuc", dniRuc);
+
+            redirectAttributes.addFlashAttribute("idPro", 1);
+            Producto productos = productoService.encontrarUnProducto(1L);
+            redirectAttributes.addFlashAttribute("productos", productos);
+
+            idProducto = 1L;
+            redirectAttributes.addFlashAttribute("idProducto", idProducto);
+
+            Long cli = clientes.getIdCliente();
+            redirectAttributes.addFlashAttribute("idCliente", cli);
+            redirectAttributes.addFlashAttribute("importe", importe);
+            redirectAttributes.addFlashAttribute("tipodeComprobante", tipodeComprobante);
+            return "redirect:/nuevaVentas";
+        }
+        if(!productoService.existeProductoPorId(idProducto)){
+            redirectAttributes.addFlashAttribute("msg3", "No se encontro el producto");
+            
+            Ventas venta = ventaService.encontrarVentaPorId(id);
+            redirectAttributes.addFlashAttribute("ven", venta);
+
+            Long idComprobante = venta.getIdComprobante();
+            var items = detalleVentaService.listarDetalleVenta(idComprobante);
+            redirectAttributes.addFlashAttribute("items", items);
+
+            Cliente clientes = clienteService.encontrarUnCliente(1);
+            redirectAttributes.addFlashAttribute("clientes", clientes);
+            redirectAttributes.addFlashAttribute("dniRuc", dniRuc);
+
+            redirectAttributes.addFlashAttribute("idPro", 1);
+            Producto productos = productoService.encontrarUnProducto(1L);
+            redirectAttributes.addFlashAttribute("productos", productos);
+
+            idProducto = 1L;
+            redirectAttributes.addFlashAttribute("idProducto", idProducto);
+
+            Long cli = clientes.getIdCliente();
+            redirectAttributes.addFlashAttribute("idCliente", cli);
+            redirectAttributes.addFlashAttribute("importe", importe);
+            redirectAttributes.addFlashAttribute("tipodeComprobante", tipodeComprobante);
+            return "redirect:/nuevaVentas";
+        }
+
         Ventas venta = ventaService.encontrarVentaPorId(id);
         redirectAttributes.addFlashAttribute("ven", venta);
 
@@ -161,6 +216,34 @@ public class ItemVentaController {
             @RequestParam(required = false, name = "importe") String importe,
             @RequestParam(required = false, name = "tipodeComprobante") String tipodeComprobante) {
 
+        if(!clienteService.existeClientePorId(idCliente)){
+            redirectAttributes.addFlashAttribute("msg2", "No se encontro el cliente");
+
+            Cliente clientes = clienteService.encontrarUnCliente(1);
+
+            Ventas venta = ventaService.encontrarVentaPorId(id);
+            redirectAttributes.addFlashAttribute("ven", venta);
+
+            redirectAttributes.addFlashAttribute("idProducto", idProducto);
+
+            Long idComprobante = venta.getIdComprobante();
+            var items = detalleVentaService.listarDetalleVenta(idComprobante);
+            redirectAttributes.addFlashAttribute("items", items);
+
+            redirectAttributes.addFlashAttribute("clientes", clientes);
+            redirectAttributes.addFlashAttribute("dniRuc", dniRuc);
+
+            redirectAttributes.addFlashAttribute("idPro", idPro);
+            var productos = productoService.encontrarUnProducto(idPro);
+            redirectAttributes.addFlashAttribute("productos", productos);
+
+            redirectAttributes.addFlashAttribute("idCliente", idCliente);
+            redirectAttributes.addFlashAttribute("importe", importe);
+            redirectAttributes.addFlashAttribute("tipodeComprobante", tipodeComprobante);
+
+            return "redirect:/nuevaVentas";
+        }
+            
         Cliente clientes = clienteService.encontrarUnCliente(dniRuc);
 
         Cliente c = clienteService.encontrarClientePorId(idCliente);

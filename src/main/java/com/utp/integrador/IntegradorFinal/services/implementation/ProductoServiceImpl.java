@@ -53,4 +53,10 @@ public class ProductoServiceImpl implements ProductoService{
         productoDao.modificarStock(idProducto, stock);
     }
 
+    @Override
+	@Transactional(readOnly = true)
+    public boolean existeProductoPorId(Long idProducto){
+        return productoDao.existsByIdProducto(idProducto);
+    }
+
 }

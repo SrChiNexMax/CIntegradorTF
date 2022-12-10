@@ -22,4 +22,6 @@ public interface ProductoDao extends JpaRepository<Producto, Long> {
     @Modifying
 	@Query("UPDATE Producto p SET p.unidadesExistentes = :stock WHERE p.idProducto = :idProducto")
     void modificarStock(@Param(value = "idProducto") long idProducto, @Param(value = "stock") Integer stock );
+
+    boolean existsByIdProducto(Long idProducto);
 }

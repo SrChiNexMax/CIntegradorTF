@@ -15,4 +15,6 @@ public interface ProductoService {
     public Producto encontrarUnProducto(Long palabraClave);
 
     public void modificarStock(Long idProducto, Integer stock);
+
+    public boolean existeProductoPorId(Long idProducto);
 }
