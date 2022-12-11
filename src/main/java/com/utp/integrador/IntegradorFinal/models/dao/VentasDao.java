@@ -18,11 +18,13 @@ public interface VentasDao extends JpaRepository<Ventas, Long> {
     @Modifying
     @Query("UPDATE Ventas v SET v.cliente = :cliente, v.tipoComprobante = :tipoDeComprobante, v.importe = :importe WHERE v.idComprobante = :idComprobante")
     void modificarVenta(@Param(value = "idComprobante") long idComprobante,@Param(value = "cliente") Cliente cliente,@Param(value = "tipoDeComprobante") String tipoDeComprobante,@Param(value = "importe") BigDecimal importe);
-	
+
 	List<Ventas> findByFacturadoTrue();
 
     List<Ventas> findByFacturadoFalse();
-	
+
+    List<Ventas> findByFacturadoTrueAndLiquidadoFalse();
+
     @Modifying
     @Query("UPDATE Ventas v SET v.importe = :importe, v.fechaVenta = :time WHERE v.idComprobante = :idComprobante")
     void finalizarVenta(@Param(value = "idComprobante") long idComprobante,@Param(value = "importe") BigDecimal importe,@Param(value = "time") Timestamp time);

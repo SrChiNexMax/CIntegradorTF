@@ -1,5 +1,6 @@
 package com.utp.integrador.IntegradorFinal.controllers;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.utp.integrador.IntegradorFinal.models.entity.Ventas;
 import com.utp.integrador.IntegradorFinal.services.DetalleVentaService;
 import com.utp.integrador.IntegradorFinal.services.VentaService;
-
-import lombok.var;
-
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class CajaController {
@@ -55,7 +54,17 @@ public class CajaController {
 		return "secciones/visualizarVenta";
 	}
 
-	
+	@PostMapping("/liquidar")
+	public String liquidarVenta() {
+		List<Ventas> ventasf = ventaService.encontrarVentasPorFacturadoAndLiquidado();
+		BigDecimal sumTL = BigDecimal.valueOf(0.0);
+		for (Ventas v: ventasf){
+			v.setLiquidado(true);
+			sumTL=sumTL.add(v.getImporte());
+		}
+		ventaService.guardarLiquidadas(ventasf);
+		return "redirect:/caja";
+	}
 	
 	
 }

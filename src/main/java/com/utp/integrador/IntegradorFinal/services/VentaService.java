@@ -17,13 +17,19 @@ public interface VentaService {
 
     public void guardar(Ventas ventas);
 
+    public void guardarLiquidadas(List<Ventas> ventas);
+
     public void eliminar(Long id);
     
     public List<Ventas> encontrarVentasPorFacturado();
+
+    public List<Ventas> encontrarVentasPorFacturadoAndLiquidado();
 
     public void editar(Long id, Cliente cliente, String tipoDeComprobante,BigDecimal importe);
 
     public void finalizar(Long id,BigDecimal importe,Timestamp time);
 
     ResponseEntity<Resource> reportePDF(Long idComprobate);
+
+
 }

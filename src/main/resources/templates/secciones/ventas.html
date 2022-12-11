@@ -102,6 +102,7 @@
                             <td ><button th:id="'button' + ${venta.idComprobante}" th:onclick="|getData('row${venta.idComprobante}')|">Seleccionar</button></td>
                             <td ><a th:href="@{'/darVenta/'+ ${venta.idComprobante}}"><button>Editar</button></a></td>
                             <td ><a th:href="@{'/eliminarVenta/'+ ${venta.idComprobante}}"><button>Eliminar</button></a></td>
+                            <td ><a th:href="@{'/reportePDF/'+ ${venta.idComprobante}}"><img src="/img/pdf.png" height="35px" width="35px"></a></td>
                         </tr>
                         <tbody>
                     </table>

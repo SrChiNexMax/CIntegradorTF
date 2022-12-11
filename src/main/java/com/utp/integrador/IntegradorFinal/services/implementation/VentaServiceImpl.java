@@ -4,13 +4,11 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import com.sun.istack.NotNull;
 import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.util.JRLoader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
@@ -27,6 +25,8 @@ import com.utp.integrador.IntegradorFinal.models.entity.Cliente;
 import com.utp.integrador.IntegradorFinal.models.entity.Ventas;
 import com.utp.integrador.IntegradorFinal.services.VentaService;
 import org.springframework.util.ResourceUtils;
+
+import javax.sql.DataSource;
 
 @Service
 public class VentaServiceImpl implements VentaService{
@@ -45,6 +45,11 @@ public class VentaServiceImpl implements VentaService{
     }
 
     @Override
+    public void guardarLiquidadas(List<Ventas> ventas){
+        ventasDao.saveAll(ventas);
+    }
+
+    @Override
     public void eliminar(Long id) {
         ventasDao.deleteById(id);
     }
@@ -58,7 +63,11 @@ public class VentaServiceImpl implements VentaService{
     @Transactional
     public List<Ventas> encontrarVentasPorFacturado() {
     	return ventasDao.findByFacturadoTrue();
-    	
+    }
+
+    @Transactional
+    public List<Ventas> encontrarVentasPorFacturadoAndLiquidado() {
+        return ventasDao.findByFacturadoTrueAndLiquidadoFalse();
     }
 
     @Override
@@ -73,6 +82,9 @@ public class VentaServiceImpl implements VentaService{
         ventasDao.finalizarVenta(id, importe, time);
     }
 
+    @Autowired
+    private DataSource ds;
+
     @Override
     @NotNull
     public ResponseEntity<Resource> reportePDF(Long idComprobate) {
@@ -84,15 +96,13 @@ public class VentaServiceImpl implements VentaService{
                 final JasperReport report = (JasperReport) JRLoader.loadObject(file);
 
                 final HashMap<String, Object> parameters = new HashMap<>();
+                parameters.put("idcomprobante",idComprobate);
 
-                JasperPrint jasperPrint = JasperFillManager.fillReport(report, parameters, new JREmptyDataSource());
+                JasperPrint jasperPrint = JasperFillManager.fillReport(report, parameters, ds.getConnection());
                 byte[] reporte = JasperExportManager.exportReportToPdf(jasperPrint);
-                String sdf = (new SimpleDateFormat("dd/MM/YYYY")).format(new Date());
-                StringBuilder stringBuilder = new StringBuilder().append("InvoicePDF:");
+                StringBuilder stringBuilder = new StringBuilder().append("Reporte_Venta_");
                 ContentDisposition contentDisposition = ContentDisposition.builder("attachment")
                         .filename(stringBuilder.append(ventas.getIdComprobante())
-                                .append("generateDate:")
-                                .append(sdf)
                                 .append(".pdf")
                                 .toString())
                         .build();

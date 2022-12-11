@@ -76,13 +76,12 @@ public class VentaController {
 		Ventas venta = ventaService.encontrarVentaPorId(idComprobante);
 		venta.setFacturado(true);
 		ventaService.guardar(venta);
-		
 		return "redirect:/ventas";
 	}
 
 	//JasperReport
-	@GetMapping("/reportePDF/{id}")
-	public ResponseEntity<Resource> reportePDF(@PathVariable(name = "id") Long id){
-		return this.ventaService.reportePDF(id);
+	@RequestMapping("/reportePDF/{idReporte}")
+	public ResponseEntity<Resource> reportePDF(@PathVariable(name = "idReporte") Long idReporte){
+		return this.ventaService.reportePDF(idReporte);
 	}
 }
