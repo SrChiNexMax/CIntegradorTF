@@ -14,4 +14,5 @@ public interface DetalleVentaDao extends JpaRepository<DetalleVenta, Long> {
 
     public DetalleVenta findByidDetalles(Long idDetalles);
 
+    public List<DetalleVenta> findByVentas_FacturadoTrueAndVentas_LiquidadoFalse();
 }

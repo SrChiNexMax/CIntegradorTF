@@ -37,7 +37,6 @@ public class DetalleVenta implements Serializable {
 	@JoinColumn(nullable = false, name = "idComprobante", referencedColumnName = "idComprobante")
 	private Ventas ventas;
 	
-	
 	@Column(precision = 12, scale=2)
 	private BigDecimal precioUnidad;
 	
