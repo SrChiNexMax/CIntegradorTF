@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clientes</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <script type='text/javascript' src="js/clientes.js"></script>
+</head>
+
+<body class="fondoB">
+    <form hidden id="add" method="post" th:object="${cliente}" th:action="@{/guardarCliente}" >
+    	<input type="hidden" name="idCliente" id="idCliente">
+    </form>
+    <form hidden id="delete" method="get" th:object="${cliente}" th:action="@{/eliminarCliente}" >
+    	<input type="hidden" name="idCliente" id="idCliente">
+    </form>
+    <center>
+        <div class="dv">
+            <div class="dv1">
+            </div>
+            <div class="dv2">
+                <div class="headermenu">
+                    <a type="button" th:href="@{/}">
+                        <button class="menubtn">
+                            <span class="menuicon">
+                                <svg viewBox="0 0 175 80" width="40" height="40">
+                                    <rect width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                                    <rect y="30" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                                    <rect y="60" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                                </svg>
+                            </span>
+                            <span class="menutext">MENU</span>
+                        </button>
+                    </a>
+                    <div class="menuuser">
+                        <p sec:authentication="name">Usuario</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="formEmail">
+            <form method="post" th:action="@{/enviarEmail}" enctype="multipart/form-data">
+
+                <p>Asunto:</p>
+                <input type="text" class="field-email" name="asunto" id="asunto" required>
+
+                <p>Mensaje:</p>
+                <textarea class="field-email" name="mensaje" id="mensaje" required></textarea><br><br>
+
+                <input type="file" name="archivo" id="archivo"><br><br>
+
+                <hr>
+
+                <button type="submit" class="menubtn2 mbtn">Enviar email</button><br>
+                
+            </form>
+            <a style="text-decoration: none;" th:href="@{/caja}"><button class="menubtn2 mbtn">Volver</button></a><br>
+
+            <p th:text="${msg}"></p>
+        </div>
+    </center>
+</body>
+
+</html>
