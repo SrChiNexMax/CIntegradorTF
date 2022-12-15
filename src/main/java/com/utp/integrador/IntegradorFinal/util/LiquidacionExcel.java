@@ -1,15 +1,22 @@
 package com.utp.integrador.IntegradorFinal.util;
 
-import com.utp.integrador.IntegradorFinal.models.entity.DetalleVenta;
-import com.utp.integrador.IntegradorFinal.models.entity.Ventas;
-import org.apache.poi.ss.usermodel.*;
-import org.springframework.stereotype.Component;
-import org.springframework.web.servlet.view.document.AbstractXlsxView;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.text.SimpleDateFormat;
-import java.util.*;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.view.document.AbstractXlsxView;
+
+import com.utp.integrador.IntegradorFinal.models.entity.DetalleVenta;
 
 @Component("secciones/caja.xlsx")
 public class LiquidacionExcel extends AbstractXlsxView {

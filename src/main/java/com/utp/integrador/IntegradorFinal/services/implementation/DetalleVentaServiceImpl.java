@@ -1,16 +1,14 @@
 package com.utp.integrador.IntegradorFinal.services.implementation;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
 
-import com.utp.integrador.IntegradorFinal.models.dao.VentasDao;
-import com.utp.integrador.IntegradorFinal.models.entity.Ventas;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.utp.integrador.IntegradorFinal.models.dao.DetalleVentaDao;
+import com.utp.integrador.IntegradorFinal.models.dao.VentasDao;
 import com.utp.integrador.IntegradorFinal.models.entity.DetalleVenta;
 import com.utp.integrador.IntegradorFinal.services.DetalleVentaService;
 

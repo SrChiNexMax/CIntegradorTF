@@ -4,10 +4,11 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.List;
 
-import com.utp.integrador.IntegradorFinal.models.entity.Cliente;
-import com.utp.integrador.IntegradorFinal.models.entity.Ventas;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
+
+import com.utp.integrador.IntegradorFinal.models.entity.Cliente;
+import com.utp.integrador.IntegradorFinal.models.entity.Ventas;
 
 public interface VentaService {
 

@@ -3,13 +3,12 @@ package com.utp.integrador.IntegradorFinal.services.implementation;
 import java.io.File;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Optional;
 
-import com.sun.istack.NotNull;
-import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.engine.util.JRLoader;
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
@@ -19,14 +18,19 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.ResourceUtils;
 
+import com.sun.istack.NotNull;
 import com.utp.integrador.IntegradorFinal.models.dao.VentasDao;
 import com.utp.integrador.IntegradorFinal.models.entity.Cliente;
 import com.utp.integrador.IntegradorFinal.models.entity.Ventas;
 import com.utp.integrador.IntegradorFinal.services.VentaService;
-import org.springframework.util.ResourceUtils;
 
-import javax.sql.DataSource;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
 
 @Service
 public class VentaServiceImpl implements VentaService{
