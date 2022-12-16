@@ -1,6 +1,7 @@
 package com.utp.integrador.IntegradorFinal.models.entity;
 
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
@@ -16,7 +17,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "liquidacion")
-public class Liquidacion {
+public class Liquidacion implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
