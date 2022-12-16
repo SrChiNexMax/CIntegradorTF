@@ -115,7 +115,7 @@ public class ItemVentaController {
             redirectAttributes.addFlashAttribute("tipodeComprobante", tipodeComprobante);
             return "redirect:/nuevaVentas";
         }
-        if(!productoService.existeProductoPorId(idProducto)){
+        if(!productoService.existeProductoPorId(idPro)){
             redirectAttributes.addFlashAttribute("msg3", "No se encontro el producto");
             
             Ventas venta = ventaService.encontrarVentaPorId(id);
